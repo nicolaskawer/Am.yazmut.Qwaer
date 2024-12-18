@@ -1,0 +1,19 @@
+.logo__container{
+    gap: 5px;
+}
+.logo__container .logo{
+   width: 40px; 
+   height:40px ;
+}
+.logo__container img{
+    object-fit: contain;
+}
+.logo__container h2{
+    font-size: 30px;
+}
+.logo__container img{
+    object-fit: contain;
+}
+.logo__container h2{
+    font-size: 30px
+}

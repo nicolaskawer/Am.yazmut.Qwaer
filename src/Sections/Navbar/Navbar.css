@@ -1,0 +1,61 @@
+.navbar{
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+.navbar .navbar__links{
+    display: flex;
+    gap: 1rem;
+}
+.navbar .nav__item{
+    padding: 20px 0px ;
+    cursor: pointer;
+    position: relative;
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    transition: var(--transition); /*its just build in word that i write in the project*/
+}
+.navbar .nav__item:hover{
+    color:var(--primary)
+}
+.navbar .nav__item.active::after{
+    content:"";
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 6px;
+    width: 100%;
+    border-radius: var(--radius-4);/*  --radius-4: 2.5rem; */
+    background: var(--primary);
+}
+.navbar .btn{
+    border-radius:var(--radius-4);
+    box-shadow: 0 19px 58px 0 var(--primary);
+    padding: 0.7rem 1rem;
+    font-size: var(--font-size-base);
+}
+.navbar .menu__btn{
+    font-size: 30px;
+    background: transparent;
+    display:none;
+}
+
+/*make the navbar responsive whan manimaizing the page*/
+@media (max-width:1156px){
+    .navbar .social__handles{
+        display: none;
+    }
+}
+@media (max-width:950px){
+    .navbar{
+        padding:0.5rem 1rem
+    }
+    .navbar .navbar__links{
+        display: none;
+    }
+    .navbar .menu__btn{
+        display: flex;
+    }
+}
