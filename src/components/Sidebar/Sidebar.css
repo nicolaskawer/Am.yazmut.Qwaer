@@ -1,0 +1,32 @@
+.sidebar{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1100;
+    height: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    transition: var(--transition);
+    overflow:hidden;
+
+}
+.sidebar.visible{
+    height: 100%;
+}
+.sidebar .sidebar__wrapper{
+    padding: 1rem;
+}
+.sidebar .top{
+    justify-content:space-between
+}
+.sidebar .navitem{
+    display:block;
+    padding: 10px 0px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.sidebar.navitem:hover{
+    color: var(--primary);
+}

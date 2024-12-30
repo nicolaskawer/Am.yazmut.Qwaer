@@ -1,0 +1,21 @@
+#why-choose-us{
+    direction: rtl;
+    box-shadow: var(--box-shadow);
+    background: var(--bg-secondry);
+}
+#why-choose-us .conrainer{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#why-choose-us .why__item{
+    padding: 20px;
+}
+
+#why-choose-us .why__item .icon{
+    font-size: 30px;
+}
+
+#why-choose-us .why__item .title{
+    font-size: var(--font-size-small);
+}
+

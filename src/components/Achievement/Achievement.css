@@ -1,0 +1,98 @@
+.achievements {
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the order of achievement cards */
+    background-image: url("../../assets/watercolor.png");
+    background-repeat: no-repeat;
+    background-size: 100% 200px;
+    justify-content: space-between; /* Add spacing between cards */
+   
+    padding: 2rem; /* Add some padding for spacing */
+}
+
+.achievements .achievement_card {
+    padding: 1rem;
+ 
+}
+
+.achievements .achievement_card .flex {
+    align-items: center;
+    gap: 5px;
+
+}
+
+.achievements .achievement_card h3 {
+    font-weight: 500;
+    font-size: 20px;
+    
+}
+
+.achievements .achievement_card h1 {
+    font-size: 40px;
+    line-height: 45px;
+    margin: 0;
+    
+}
+
+.achievements .achievement_card p {
+    font-size: 14px;
+    margin-top: 0.5rem;
+}
+.odometer {
+    direction: ltr; /* Set numbers to render left-to-right */
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+
+/* Make achievements responsive */
+@media (max-width: 1260px) {
+    .achievements .achievement_card .heading {
+        font-size: 40px;
+        line-height: 45px;
+    }
+    .achievements .achievement_card p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 930px) {
+    .achievements {
+        flex-direction: column-reverse; /* Stack cards vertically in reverse order */
+        align-items: center;
+    }
+
+    .achievements .achievement_card {
+        margin-bottom: 1rem;
+        width: 100%; /* Take full width */
+        text-align: center;
+    }
+
+    .achievements .achievement_card .flex {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .achievements .achievement_card {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .achievements .achievement_card .title {
+        font-size: 12px;
+    }
+
+    .achievements .achievement_card .flex {
+        justify-content: center;
+    }
+
+    .achievements .achievement_card .heading {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .achievements .achievement_card p {
+        font-size: 9px;
+    }
+}

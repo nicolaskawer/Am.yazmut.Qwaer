@@ -1,0 +1,50 @@
+#about{
+    direction: rtl; /* Set direction to right-to-left */
+    position: relative;
+    background: var(--primary);
+}
+#about .container{
+    display: grid;
+    grid-template-columns: 400px auto;
+    background: var(--primary);
+    border-top-right-radius: var(--radius-5);
+    overflow: visible;
+    gap: 2rem;
+}
+#about .about__image{
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    max-width: 400px;
+    margin: auto;
+    border: solid 10px var(--primary);
+}
+#about .keypoints__container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:1rem;
+    margin-top: 30px;
+}
+#about .keypoints__container .keypoint{
+    align-items: center;
+    gap: 10px;
+}
+#about .keypoint .title{
+    font-size: var(--font-size-base);
+}
+/*make about responsive*/
+@media (max-width:1280px){
+    #about .keypoints__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:920px){
+    #about .container{
+        grid-template-columns: 100%;
+        border-top-right-radius: 70%;
+    }
+}
+@media (max-width:650px){
+    #about .keypoints__container{
+        grid-template-columns: 100%;
+    }
+}

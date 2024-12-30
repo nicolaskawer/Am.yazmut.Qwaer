@@ -66,42 +66,42 @@ export const navigations = [
 export const keypoints = [
   {
     icon: <FaTools />,
-    title: "Expert Craftsmanship",
+    title: "אומנות מומחית",
   },
   {
     icon: <FaRegClock />,
-    title: "On-Time, Within Budget",
+    title:"בזמן, במסגרת התקציב ",
   },
   {
     icon: <FaLightbulb />,
-    title: "Innovative Solutions",
+    title: "פתרונות חדשניים",
   },
   {
     icon: <FaHandsHelping />,
-    title: "Client-Centered Approach",
+    title: "גישה ממוקדת ללקוח",
   },
 ];
 
 export const whyChooseUs = [
   {
-    title: "Unmatched Quality",
+    title: "איכות ללא תחרות",
     icon: <FaCheckCircle />,
-    description: "Craftsmanship guaranteed",
+    description: "אומנות מובטחת",
   },
   {
-    title: "Timely Delivery",
+    title: "אספקה ​​בזמן",
     icon: <FaClock />,
-    description: "Projects completed on schedule",
+    description: "פרויקטים שהושלמו על פי לוח הזמנים",
   },
   {
-    title: "Innovative Designs",
+    title: "עיצובים חדשניים",
     icon: <FaDraftingCompass />,
-    description: "Creative and modern solutions",
+    description: "פתרונות יצירתיים ומודרניים",
   },
   {
-    title: "Focused Service",
+    title: "שירות ממוקד",
     icon: <FaUserFriends />,
-    description: "Prioritizing client satisfaction always",
+    description: "מתן עדיפות לשביעות רצון הלקוח תמיד",
   },
 ];
 

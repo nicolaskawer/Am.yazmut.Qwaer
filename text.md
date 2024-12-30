@@ -1,17 +1,12 @@
 ## Hero Section
 
 Title: Building Excellence, Creating Tomorrow
-Description: We are dedicated to delivering top-quality construction services with a focus on innovation, sustainability, and client satisfaction. With over 25 years of experience, we bring
-expertise and precision to every project, helping shape the
-future through excellence in design and craftsmanship.
+Description: אנו מחויבים לספק שירותי בנייה באיכות מעולה עם התמקדות בחדשנות, קיימות ושביעות רצון הלקוח. עם למעלה מ-25 שנות ניסיון, אנו מביאים מומחיות ודיוק לכל פרויקט, ועוזרים לעצב את העתיד באמצעות מצוינות בעיצוב ואומנות.
 
 ## About Section
 
-Title: Building Your Vision, Crafting Your Future
-Description: At Confix, we turn your ideas into reality with expert
-craftsmanship and innovative solutions. From concept to
-completion, we’re dedicated to creating spaces that inspire and
-stand the test of time. Let’s build a future you can be proud of.
+Title: בניית חזונך,יצירת עתידך
+Description: אנחנו צריכים לכתוב משהו כמו אצלנו בעם יזמות מבטיחים ל...
 
 ## Consultation
 
