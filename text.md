@@ -11,15 +11,12 @@ Description: אנחנו צריכים לכתוב משהו כמו אצלנו בע�
 ## Consultation
 
 Title: Plan Your Dream Project with Us
-Description: Ready to bring your vision to life? Our expert team offers
-personalized consultations to guide you through every step—from
-design to budget and beyond. Let’s lay the groundwork for your
-next big project. Schedule your consultation today!
+Description:מוכן להגשים את החזון שלך? צוות המומחים שלנו מציע ייעוץ אישי שידריך אותך בכל שלב - מעיצוב ועד תקציב ומעבר לכך. בואו נניח את הבסיס לפרויקט הגדול הבא שלכם. קבע את פגישתך עוד היום!
 
 ## Portfolio
 
-Title: Crafting Spaces, Building Dreams
-Description: Explore our portfolio to see how we turn visions into high-quality, inspiring spaces, from luxury homes to commercial buildings.
+Title: יצירת חללים, בניית חלומות
+Description: חקור את הפורטפוליו שלנו כדי לראות כיצד אנו הופכים חזונות לחללים איכותיים ומעוררי השראה, מבתי יוקרה ועד מבנים מסחריים.
 
 ## Team Members
 
@@ -29,8 +26,8 @@ project. Get to know our dedicated team making your vision a reality.
 
 ## Blog
 
-Title: Insights & Innovations
-Description: Stay informed with the latest trends, tips, and expert advice on all things construction. Explore industry insights to help guide your next project!
+Title: תובנות וחדשנות
+Description:הישאר מעודכן עם הטרנדים העדכניים ביותר, טיפים ועצות מומחים בכל הקשור לבנייה. חקור תובנות בענף שיעזרו להנחות את הפרויקט הבא שלך!
 
 ## Contact
 

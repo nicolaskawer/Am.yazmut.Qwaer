@@ -107,19 +107,19 @@ export const whyChooseUs = [
 
 export const services = [
   {
-    title: "Residential Construction",
+    title: "בנייה למגורים",
     icon: <FaHome />,
-    description: `Building modern, high-quality homes tailored to your vision.`,
+    description: `בניית בתים מודרניים ואיכותיים המותאמים לחזון שלך.`,
   },
   {
-    title: "Commercial Projects",
+    title: "פרויקטים מסחריים",
     icon: <FaBuilding />,
-    description: `Developing functional, innovative commercial spaces for businesses.`,
+    description: `פיתוח חללי מסחר פונקציונליים וחדשניים לעסקים.`,
   },
   {
-    title: "Renovation & Remodeling",
+    title: "לא יודע",
     icon: <FaTools />,
-    description: `Transforming existing spaces with expert renovation and design.`,
+    description: `לא יודע`,
   },
 ];
 
@@ -262,18 +262,18 @@ export const testimonials = [
 
 export const blogs = [
   {
-    title: "Innovative Construction Trends for 2024",
-    content: `Discover the latest trends in construction for 2024, from sustainable building practices to cutting-edge technologies transforming the industry.`,
+    title: "מגמות בנייה חדשניות לשנת 2025",
+    content: `גלה את הטרנדים העדכניים ביותר בבנייה לשנת 2025, החל משיטות בנייה בת קיימא ועד לטכנולוגיות מתקדמות שמשנות את התעשייה.`,
     image: blog1,
   },
   {
-    title: "The Importance of Sustainable Building Materials",
-    content: `Learn why using sustainable building materials is crucial for environmental protection and how it benefits both the project and the community.`,
+    title: "החשיבות של חומרי בניין ברי קיימא",
+    content: `למד מדוע שימוש בחומרי בניין ברי קיימא הוא חיוני להגנה על הסביבה וכיצד הוא מועיל הן לפרויקט והן לקהילה.`,
     image: blog2,
   },
   {
-    title: "Top Tips for Effective Project Management",
-    content: `Explore essential tips for managing construction projects efficiently, including scheduling, budgeting, and communication strategies.`,
+    title: "טיפים מובילים לניהול פרויקטים יעיל",
+    content: `גלה טיפים חיוניים לניהול פרויקטי בנייה ביעילות, כולל אסטרטגיות תזמון, תקציב ואסטרטגיות תקשורת.`,
     image: blog3,
   },
 ];
