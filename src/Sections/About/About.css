@@ -1,22 +1,26 @@
 #about{
     direction: rtl; /* Set direction to right-to-left */
     position: relative;
-    background: var(--primary);
+    background-color: var(--primary);
+}
+#about .overlay__div{
+    background: linear-gradient(to bottom, var(--primary), black);
 }
 #about .container{
     display: grid;
     grid-template-columns: 400px auto;
+    
     background: var(--primary);
     border-top-right-radius: var(--radius-5);
     overflow: visible;
     gap: 2rem;
 }
 #about .about__image{
-    border-radius: var(--radius-3);
+    border-radius: var(--radius-2);
     overflow: hidden;
     max-width: 400px;
     margin: auto;
-    border: solid 10px var(--primary);
+    border: solid 10px var(--gray-border);
 }
 #about .keypoints__container{
     display: grid;

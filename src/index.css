@@ -5,16 +5,16 @@
   --primary-accent: #cc8800;
 
   /* Background */
-  --bg-primary: #f7f7f7;
+  --bg-primary: #000000;
   --bg-secondary: #ffffff;
 
   /* Text colors */
-  --text-color: #000;
+  --text-color: #ffffff;
   --text-muted: #777777;
   --color-white: #ffffff;
 
   /* Border */
-  --gray-border: solid 1px #ccc;
+  --gray-border: solid 1px #000000;
 
   /* Radius */
   --radius-1: 5px;
@@ -22,9 +22,14 @@
   --radius-3: 1.5rem;
   --radius-4: 2.5rem;
   --radius-5: 100%;
+  --radius-6:40px;
+
+ /*for the shadows*/
+  --primary-rgb: 255, 170, 0;
 
   /* Shadows */
   --box-shadow: rgba(52, 51, 51, 0.2) 0px 4px 12px;
+  --box-shadow-O: rgba(var(--primary-rgb), 1) 0px 4px 12px;
 
   /* Typography */
   --font-size-base: 16px;
@@ -162,7 +167,7 @@ textarea {
   min-height: 3rem;
   max-width: 3rem;
   max-height: 3rem;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   font-size: 20px;
   border-radius: var(--radius-2);
   cursor: pointer;

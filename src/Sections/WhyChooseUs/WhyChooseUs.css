@@ -2,8 +2,10 @@
     direction: rtl;
     box-shadow: var(--box-shadow);
     background: var(--bg-secondry);
+    
 }
-#why-choose-us .conrainer{
+#why-choose-us .container{
+    background: linear-gradient(to bottom, var(--primary)30%, black 70%);
     padding-top: 0;
     padding-bottom: 0;
 }

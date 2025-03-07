@@ -1,11 +1,11 @@
 #Hero{
     direction: rtl; /* Set direction to right-to-left */
     position: relative;
-    background: var(--bg-secondary);
-    background-image: url(../../assets/structure.jpg);
+    background: var(--bg-secondry);
     background-size: cover;
 }
 #Hero .container{
+    background: var(--bg-primary);
     display: grid;
     grid-template-columns: 50% 50%;
     padding-top: 40px;

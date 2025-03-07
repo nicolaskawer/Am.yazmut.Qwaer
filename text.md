@@ -31,11 +31,9 @@ Description:הישאר מעודכן עם הטרנדים העדכניים ביו�
 
 ## Contact
 
-Title: Get in Touch
-Description: Have a project in mind or need expert advice? We're here to
-help! Reach out to our team for personalized consultations, inquiries, or to start your next big project today.
+Title: צור קשר
+Description: יש לך פרויקט בראש או זקוק לייעוץ מומחה? אנחנו כאן כדי לעזור! פנה אלינו להתייעצות, בירורים מותאמים אישית או להתחיל את הפרויקט הגדול הבא שלך עוד היום.
 
 ## Footer
 
-Description: Our mission is to build lasting spaces that inspire and uplift, combining quality craftsmanship with innovative solutions to meet
-the evolving needs of our clients and communities.
+Description:המשימה שלנו היא לבנות וילות ובתים איכותיות תוך שמירה על מקצוענות עם פתרונות חדשניים כדי לענות על הצרכים המפותחים של העזרה והקהילות שלנו.

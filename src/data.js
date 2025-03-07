@@ -38,27 +38,20 @@ import {
 
 export const navigations = [
   {
-    label: "About Us",
+    label: "אודותינו",
     to: "about",
   },
   {
-    label: "Services",
+    label: "שירותים",
     to: "services",
   },
   {
-    label: "Portfolio",
+    label: "תִיק",
     to: "portfolio",
   },
+  
   {
-    label: "Team",
-    to: "team",
-  },
-  {
-    label: "Testimonials",
-    to: "testimonials",
-  },
-  {
-    label: "Contact Us",
+    label: "צור קשר",
     to: "contact",
   },
 ];
@@ -162,13 +155,14 @@ export const portfolio = [
   {
     title: "Industrial Warehouse Facility",
     image: portfolio6,
+    collections: [portfolio1,portfolio2],
     date: "March 5, 2022",
     category: "Industrial",
     description: `A large-scale industrial warehouse designed for efficient logistics and operations. Featuring high ceilings, wide loading docks, and ample storage space, this project was built to optimize business workflows.`,
   },
 ];
 
-export const teamMembers = [
+/*export const teamMembers = [
   {
     fullName: "Chinedu Okafor",
     image: member1,
@@ -235,30 +229,8 @@ export const teamMembers = [
       {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
     ]
   },
-];
+];*/
 
-export const testimonials = [
-  {
-    name: "Folake Adekunle",
-    image: user1,
-    review: `The team at Confix exceeded our expectations. Their attention to detail and professionalism made our home renovation a smooth and enjoyable process.`,
-  },
-  {
-    name: "Jide Akinwale",
-    image: user2,
-    review: `From start to finish, the project was handled with incredible skill and efficiency. I highly recommend Confix for any construction needs.`,
-  },
-  {
-    name: "Chiamaka Nwachukwu",
-    image: user3,
-    review: `Working with Confix was a fantastic experience. Their team was professional, creative, and committed to delivering exactly what we envisioned.`,
-  },
-  {
-    name: "Tunde Balogun",
-    image: user4,
-    review: `Exceptional service and quality workmanship! Confix transformed our industrial space efficiently and effectively. They are true professionals.`,
-  },
-];
 
 export const blogs = [
   {
@@ -285,11 +257,11 @@ export const footer = [
       {
         name: "About Us",
         href: "#",
-      },
-      {
+      }
+      /*{
         name: "Our Team",
         href: "#",
-      },
+      }*/,
       {
         name: "Careers",
         href: "#",

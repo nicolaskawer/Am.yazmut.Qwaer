@@ -2,6 +2,10 @@
     direction: rtl;
     background: url(../../assets/sketch.png);
     background-size: cover;
+    background: var(--bg-primary);
+}
+#services .container{
+    background: linear-gradient(black 55%, var(--primary));
 }
 #services .grid{
     display: grid;
@@ -17,9 +21,9 @@
     margin: auto;
 }
 #services .service{
-    background: var(--bg-secondry);
-    border-radius: var(--radius-2);
-    box-shadow: var(--box-shadow);
+    background: var(--bg-primary);
+    border-radius: 2rem;
+    box-shadow: var(--box-shadow-O);
     padding: 30px 20px;
 }
 #services .service .top{

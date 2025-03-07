@@ -61,3 +61,28 @@
         grid-template-columns: 100%;
     }
 }
+
+
+
+.screen{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.653);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.squer{
+    height: 50%;
+    width: 60%;
+    background-color: white;
+}
+.img{
+    background-size: cover;
+    object-fit: cover;
+    
+}
