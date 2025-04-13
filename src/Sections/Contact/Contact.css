@@ -4,6 +4,9 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+#contact .overlay__div{
+    background: var(--primary);
+}
 #contact .container{
     display:grid ;
     grid-template-columns: repeat(2,1fr);

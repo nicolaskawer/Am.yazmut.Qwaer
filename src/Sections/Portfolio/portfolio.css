@@ -1,10 +1,24 @@
 #portfolio{
     direction: rtl;
-    background: var(--bg-secondary);
-    background-image: url('../../assets/watercolor.png');
-    background-repeat: no-repeat;
-    background-size: 100% 200px;
-    background-position:cover ;
+    background: var(--bg-primary);
+    
+}
+.blur__effect::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: var(--primary);
+    background: linear-gradient(190deg, var(--primary) 0%, transparent 100%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+}
+#portfolio .sub__heading{
+    margin: 1.5rem 0;
+    background: linear-gradient(black, orangered, var(--primary));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 #portfolio .portfolio__container{
     display: grid;
