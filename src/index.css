@@ -12,9 +12,11 @@
   --text-color: #ffffff;
   --text-muted: #777777;
   --color-white: #ffffff;
+  --color-black:#000000;
 
   /* Border */
   --gray-border: solid 1px #000000;
+  --white-border: solid 1px #ffffff;
 
   /* Radius */
   --radius-1: 5px;
@@ -92,7 +94,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
+    font-family: 'Alef  '; 
+    direction: rtl;
+    text-align: right;
+    font-weight: bold;  
+    font-weight: 500;
 }
 input,
 textarea {
@@ -110,6 +116,9 @@ textarea {
 }
 .primary {
   color: var(--primary);
+}
+.sec-primary {
+  color: var(--bg-primary);
 }
 .muted {
   color: var(--text-muted);
@@ -129,6 +138,10 @@ textarea {
   font-size: 40px;
   font-weight: 500;
   line-height: 35px;
+  margin: 1.5rem 0;
+    background: linear-gradient(black, orangered, var(--primary));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .line__clamp__2 {
   display: -webkit-box;
@@ -139,7 +152,6 @@ textarea {
   line-clamp: 2;
 }
 .btn {
-  color: var(--primary);
   border-radius: var(--radius-1);
   font-size: var(--font-size-base);
   padding: 0.6rem 1rem;
@@ -155,6 +167,10 @@ textarea {
 }
 .btn.primary {
   background: var(--primary);
+  color: var(--color-white);
+}
+.btn.sec-primary{
+  background: var(--bg-primary);
   color: var(--color-white);
 }
 .btn.primary:hover {
@@ -209,6 +225,14 @@ textarea {
   padding: 100px 50px;
   overflow: hidden;
 }
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
 @media (max-width: 930px) {
   .container {
     padding: 50px 20px;

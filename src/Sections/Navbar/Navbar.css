@@ -38,7 +38,7 @@
     transition: var(--transition); /*its just build in word that i write in the project*/
 }
 .navbar .nav__item:hover{
-    color:var(--primary)
+    color:var(--bg-primary)
 }
 .navbar .nav__item.active::after{
     content:"";
@@ -51,11 +51,16 @@
     background: var(--primary);
 }
 .navbar .btn{
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
+    border: var(--gray-border);
+    color:var(--bg-primary);
     border-radius:var(--radius-4);
-    box-shadow: 0 19px 58px 0 var(--primary);
     padding: 0.7rem 1rem;
     font-size: var(--font-size-base);
+}
+.navbar .btn:hover{
+    background: var(--bg-secondary);
+    color: var(--color-black);
 }
 .navbar .menu__btn{
     font-size: 30px;

@@ -38,15 +38,13 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio">
-      <div className="container blur__effect">
-        <div className="section__header">
-          <h3 className="sub__heading">יצירת חללים, בניית חלומות </h3>
-          <p className="description">
-            {""}
-            חקור את הפורטפוליו שלנו כדי לראות כיצד אנו הופכים חזונות לחללים
-            איכותיים ומעוררי השראה, מבתי יוקרה ועד מבנים מסחריים.
-          </p>
-        </div>
+      <div className="section__header">
+        <h3 className="sub__heading">יצירת חללים, בניית חלומות </h3>
+        <p className="description">
+          חקור את הפורטפוליו שלנו כדי לראות כיצד אנו הופכים חזונות לחללים
+          איכותיים ומעוררי השראה, מבתי יוקרה ועד מבנים מסחריים.
+        </p>
+
         <div className="portfolio__container">
           {portfolio.map((item, i) => (
             <div

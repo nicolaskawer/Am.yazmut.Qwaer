@@ -1,17 +1,16 @@
 #footer{
-    background-image: url("../../assets/logo.svg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    
     direction: rtl;
+    
 }
 #footer .container{
+    background-color: var(--primary);
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 2rem;
 
 }
 #footer .logo__container{
-    justify-content: center;
     direction: ltr;
 
 }
@@ -24,6 +23,7 @@
     margin: 15px 0;
 }
 #footer .footer__bottom{
+    background-color: black;
     text-align: center;
     padding: 20px;
 }

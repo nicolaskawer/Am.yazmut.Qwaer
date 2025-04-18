@@ -1,8 +1,6 @@
 #contact{
     direction: rtl;
-    background-image:url("../../assets/logo.svg.png") ;
-    background-size: cover;
-    background-repeat: no-repeat;
+    
 }
 #contact .overlay__div{
     background: var(--primary);
@@ -15,9 +13,10 @@
     margin: auto;
 }
 #contact .right__container{
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     padding: 1rem;
     border-radius:var(--radius-3);
+    border: var(--white-border);
     flex-direction: column ;
     justify-content: space-between;
     align-items: stretch;
@@ -31,19 +30,23 @@
 }
 #contact .control{
     display: block;
-    border: var(--gray-border);
+    border: var(--white-border);
     border-width: 2px;
     padding: 0px 15px;
     width: 100%;
     height: 35px;
     border-radius: var(--radius-1);
     margin: 15px 0px;/*15px for the space on the hight 0px will adjust the borders start from the start*/
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     resize: none;
     transition: var(--transition);
+    color:var(--text-color)
 }
 #contact .control:focus{/*when the client clicking on the box then will be focus*/
-    border-color: var(--primary);
+    border-color:var(--bg-primary);
+    border-radius: var(--radius-3);
+    border:solid 3.5px
+    
 }
 #contact textarea.control{/*מגדיל את האורך והרוחב של האוביקט textarea*/
     height: 100px;
@@ -56,6 +59,9 @@
     width: 100%;
     padding: 15px 20px;
 }
+
+
+
 /*make contact responsive*/
 @media (max-width:930px){
     #contact .container{

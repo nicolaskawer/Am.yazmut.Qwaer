@@ -35,6 +35,10 @@
 #services .service .icon{
     border: solid 1px var(--primary);
 }
+
+#services .service .icon:hover{
+    transform: none;
+}
 #services .service .middle{
     margin: 20px 0;
 }

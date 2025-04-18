@@ -3,6 +3,7 @@
     gap: 5px;
 }
 .social__handles .icon{
-    background: var(--bg-primary);
-    border: var(--gray-border)
+    background: var(--bg-secondary);
+    border: var(--gray-border);
+    color:var(--bg-primary)
 }
