@@ -93,7 +93,7 @@ const Contact = () => {
           <form className="form" onSubmit={handleSubmit} noValidate>
             <div className="form__top">
               <h3 className="sub__heading">צור קשר</h3>
-              <p className="muted">
+              <p className="text">
                 יש לך פרויקט בראש או זקוק לייעוץ מומחה? אנחנו כאן כדי לעזור! פנה
                 אלינו להתייעצות, בירורים מותאמים אישית או להתחיל את הפרויקט
                 הגדול הבא שלך עוד היום.

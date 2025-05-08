@@ -120,6 +120,9 @@ textarea {
 .sec-primary {
   color: var(--bg-primary);
 }
+.text{
+  color:var(--text-color);
+}
 .muted {
   color: var(--text-muted);
 }
