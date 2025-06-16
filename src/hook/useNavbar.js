@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import { useAccessibility } from "../accessibility";
 const useNavbar =()=>{
+    useAccessibility();
     const [showNavbar,setShowNavbar] = useState(false)
     const toggleNavbar = () =>{
         if(window.scrollY>150){

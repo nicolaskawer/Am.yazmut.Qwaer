@@ -8,7 +8,9 @@ import { FaArrowTurnDown } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
 import Sidebar from "../../components/Sidebar";
 import useNavbar from "../../hook/useNavbar";
+import { useAccessibility } from "../../accessibility";
 const Navbar = () => {
+  useAccessibility();
   const [openSidebar, setOpenSidebar] = useState(false);
   const { showNavbar } = useNavbar();
   return (

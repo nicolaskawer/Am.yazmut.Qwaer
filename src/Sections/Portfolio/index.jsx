@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./portfolio.css";
 import { portfolio } from "../../data";
 import { FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
-
+import { useAccessibility } from "../../accessibility";
 const Portfolio = () => {
+  useAccessibility();
   const [isClick, setClick] = useState(false);
   const [page, setPage] = useState();
   const [index, setIndex] = useState(0);

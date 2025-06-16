@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Contact.css";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
-
+import { useAccessibility } from "../../accessibility";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -55,7 +55,7 @@ const Contact = () => {
       // שליחה לשרת או טיפול אחר...
     }
   };
-
+  useAccessibility();
   return (
     <section id="contact">
       <div className="overlay__div">

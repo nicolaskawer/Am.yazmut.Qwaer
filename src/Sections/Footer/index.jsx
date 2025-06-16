@@ -2,8 +2,9 @@ import React from "react";
 import "./Footer.css";
 import Logo from "../../components/Logo";
 import { footer } from "../../data";
-
+import { useAccessibility } from "../../accessibility";
 const Footer = () => {
+  useAccessibility();
   return (
     <footer id="footer">
       <div className="overlay__div">

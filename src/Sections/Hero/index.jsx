@@ -4,8 +4,9 @@ import Achievement from "../../components/Achievement";
 import { FaArrowTurnDown } from "react-icons/fa6";
 import { Link } from "react-scroll";
 import { crane } from "../../assets";
-
+import { useAccessibility } from "../../accessibility";
 const Hero = () => {
+  useAccessibility();
   return (
     <section id="Hero" className="blur__effect">
       <div className="overlay__div">
