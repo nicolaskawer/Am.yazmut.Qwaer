@@ -20,6 +20,8 @@ const Sidebar = ({ openSidebar, onClose }) => (
             key={nav.to}
             to={nav.to}
             smooth={true}
+            duration={600}
+            offset={-80}
             className="navitem"
             onClick={onClose}
           >

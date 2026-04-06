@@ -32,6 +32,7 @@ const Navbar = () => {
               activeClass="active"
               spy={true}
               smooth={true}
+              duration={600}
               offset={-80}
             >
               {item.label}
@@ -42,7 +43,7 @@ const Navbar = () => {
         <SocialHandles />
 
         <div className="flex__center">
-          <Link to="contact" smooth={true} className="flex__center btn primary">
+          <Link to="contact" smooth={true} duration={600} offset={-80} className="flex__center btn primary">
             קבלת הצעת מחיר
             <FaArrowTurnDown aria-hidden="true" />
           </Link>

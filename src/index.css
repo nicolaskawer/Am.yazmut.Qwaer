@@ -54,7 +54,6 @@
 
 /* ─── Base ────────────────────────────────────────────────────────────────────── */
 html {
-  scroll-behavior: smooth;
   font-size: var(--font-size-base);
 }
 
@@ -194,6 +193,21 @@ textarea {
   max-width: 540px;
   line-height: 1.8;
   margin-top: 0.6rem;
+}
+
+/* ─── Global Section Dividers ─────────────────────────────────────────────────── */
+section:not(#Hero) {
+  position: relative;
+}
+
+section:not(#Hero)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
 }
 
 /* ─── Text Clamp ──────────────────────────────────────────────────────────────── */
