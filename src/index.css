@@ -366,12 +366,10 @@ textarea {
   text-align: right;
 }
 
-/* ─── Scroll Reveal ───────────────────────────────────────────────────────────── */
+/* ─── Scroll Reveal (Disabled to prevent black screen) ──────────────────────────── */
 section:not(#Hero) {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section.section--visible {
