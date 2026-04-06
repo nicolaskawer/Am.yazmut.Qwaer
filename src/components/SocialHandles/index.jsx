@@ -8,7 +8,8 @@ const SocialHandles = () =>{
             <a 
                  href={handle.link}
                 className="flex__center icon"
-                target = "_blank" 
+                target="_blank"
+                rel="noreferrer"
                 key = {index}
         >
             {handle.icon}

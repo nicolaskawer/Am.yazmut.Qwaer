@@ -4,6 +4,9 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FiPhoneCall, FiMapPin } from "react-icons/fi";
 import SectionHeader from "../../components/SectionHeader";
 
+// ── Replace YOUR_FORM_ID with the ID from https://formspree.io ──────────────
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
 const INITIAL_FORM = { fullName: "", email: "", phoneNumber: "", message: "" };
 
 const validate = (formData) => {
@@ -23,19 +26,42 @@ const Contact = () => {
   const [formData, setFormData] = useState(INITIAL_FORM);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormData((p) => ({ ...p, [name]: value }));
     if (errors[name]) setErrors((p) => ({ ...p, [name]: null }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate(formData);
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
-    setFormData(INITIAL_FORM);
-    setErrors({});
+
+    setSending(true);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          שם: formData.fullName,
+          אימייל: formData.email,
+          טלפון: formData.phoneNumber,
+          הודעה: formData.message,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData(INITIAL_FORM);
+        setErrors({});
+      } else {
+        setErrors({ message: "שגיאה בשליחה. אנא נסו שנית או צרו קשר ישירות." });
+      }
+    } catch {
+      setErrors({ message: "אין חיבור לאינטרנט. אנא נסו שנית." });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -125,8 +151,8 @@ const Contact = () => {
             {errors.message && <span className="error" role="alert">{errors.message}</span>}
           </div>
 
-          <button type="submit" className="form__submit">
-            שלח הודעה ←
+          <button type="submit" className="form__submit" disabled={sending}>
+            {sending ? "שולח..." : "שלח הודעה ←"}
           </button>
         </form>
 
