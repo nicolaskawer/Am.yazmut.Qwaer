@@ -1,38 +1,39 @@
-import React from "react";
 import "./Footer.css";
 import Logo from "../../components/Logo";
 import { footer } from "../../data";
-import { useAccessibility } from "../../accessibility";
-const Footer = () => {
-  useAccessibility();
-  return (
-    <footer id="footer">
-      <div className="overlay__div">
-        <div className="container">
-          <div className="column">
-            <Logo />
-            <p>
-              המשימה שלנו היא לבנות וילות ובתים איכותיות תוך שמירה על מקצוענות
-              עם פתרונות חדשניים כדי לענות על הצרכים המפותחים של העזרה והקהילות
-              שלנו.
-            </p>
-          </div>
-          {footer.map((foot, index) => (
-            <div className="column" key={index}>
-              <h4 className="title">{foot.title}</h4>
-              {foot.routes.map((route, index) => (
-                <a href={route.href} className="route" key={index}>
-                  {route.name}
-                </a>
-              ))}
-            </div>
+
+const Footer = () => (
+  <footer id="footer">
+    <div className="container">
+      {/* Brand column */}
+      <div className="column">
+        <Logo />
+        <p>
+          המשימה שלנו היא לבנות בתים ווילות איכותיים תוך שמירה על מקצוענות,
+          שקיפות ופתרונות חדשניים שעונים על הצרכים של לקוחותינו.
+        </p>
+      </div>
+
+      {/* Link columns */}
+      {footer.map((col) => (
+        <div className="column" key={col.title}>
+          <h4 className="title">{col.title}</h4>
+          {col.routes.map((route) => (
+            <a href={route.href} className="route" key={route.name}>
+              {route.name}
+            </a>
           ))}
         </div>
-        <div className="footer__bottom">
-          <p>Copyright &copy;AM Kawer Yazamut- all right reserved</p>
-        </div>
-      </div>
-    </footer>
-  );
-};
+      ))}
+    </div>
+
+    <div className="footer__bottom">
+      <p>
+        &copy; {new Date().getFullYear()}{" "}
+        <span>עם יזמות ובנייה</span> — כל הזכויות שמורות
+      </p>
+    </div>
+  </footer>
+);
+
 export default Footer;

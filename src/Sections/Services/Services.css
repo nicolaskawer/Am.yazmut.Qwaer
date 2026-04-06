@@ -1,60 +1,93 @@
 #services {
     direction: rtl;
-    background: url(../../assets/sketch.png);
-    background-size: cover;
     background: var(--bg-primary);
 }
-#services .container{
-    background: linear-gradient(black 55%, var(--primary));
+
+#services .container {
+    background: linear-gradient(180deg, var(--bg-primary) 70%, rgba(var(--primary-rgb), 0.06) 100%);
 }
-#services .grid{
+
+/* Top: intro + sketch */
+#services .grid {
     display: grid;
-    gap:1.5rem;
+    gap: 1.5rem;
     grid-template-columns: auto 450px;
+    align-items: center;
 }
-#services .grid.services{
-    grid-template-columns: repeat(3,1fr);
+
+/* Service cards grid */
+#services .grid.services {
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 40px;
 }
-#services .object__contain{
+
+#services .services__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#services .object__contain {
     max-width: 450px;
     margin: auto;
 }
-#services .service{
-    background: var(--bg-primary);
-    border-radius: 2rem;
-    box-shadow: var(--box-shadow-O);
-    padding: 30px 20px;
-}
-#services .service .top{
-    align-items: center;
-    gap: 10px;
-    font-style: italic;
-    font-size: large;
-}
-#services .service .icon{
-    border: solid 1px var(--primary);
+
+/* Individual service card */
+#services .service {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-2);
+    box-shadow: var(--box-shadow-gold);
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-#services .service .icon:hover{
+#services .service:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--primary-rgb), 0.3);
+}
+
+#services .service .top {
+    align-items: center;
+    gap: 12px;
+}
+
+#services .service .icon {
+    border: solid 1px var(--primary);
+    background: rgba(var(--primary-rgb), 0.1);
+}
+
+#services .service .icon:hover {
     transform: none;
 }
-#services .service .middle{
-    margin: 20px 0;
+
+#services .service .middle {
+    margin: 18px 0;
+    flex: 1;
 }
 
-/*make service responsive*/
-@media(max-width:930px){
-    #services .grid{
-        grid-template-columns: 100%;/*whenthe window reach this size every espect is going to be in columns insted of some חירבושים*/
-    }
-    #services .grid.services{
-        grid-template-columns: repeat(2,1fr);/*2in 1row*/
+#services .service .description {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
 
+/* Responsive */
+@media (max-width: 930px) {
+    #services .grid {
+        grid-template-columns: 100%;
+    }
+
+    #services .grid.services {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
-@media(max-width:700px){
-    #services .grid.services{
-        grid-template-columns: 100%;/*Allows them to spread across the entire column*/
+
+@media (max-width: 700px) {
+    #services .grid.services {
+        grid-template-columns: 100%;
     }
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import { logo } from "../../assets";
 import "./Logo.css";
 const Logo = () => {

@@ -1,40 +1,79 @@
-#footer{
-    
-    direction: rtl;
-    
+/* ─── Footer ─────────────────────────────────────────────────────────────────── */
+#footer {
+  direction: rtl;
+  background: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
-#footer .container{
-    background-color: var(--primary);
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 2rem;
 
+#footer .container {
+  background: transparent;
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 3rem;
 }
-#footer .logo__container{
-    direction: ltr;
 
+/* Brand column */
+#footer .column:first-child p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-top: 1rem;
+  max-width: 260px;
 }
-#footer .title{
-    font-size: 20px;
+
+/* Column headings */
+#footer .title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.1rem;
+  -webkit-text-fill-color: var(--primary);
 }
-#footer .route{
-    color: var(--text-color);
-    display: block;
-    margin: 15px 0;
+
+/* Nav links */
+#footer .route {
+  color: var(--text-muted);
+  display: block;
+  margin: 0.55rem 0;
+  font-size: 0.88rem;
+  transition: color 0.2s ease, padding-right 0.2s ease;
 }
-#footer .footer__bottom{
-    background-color: black;
-    text-align: center;
-    padding: 20px;
+
+#footer .route:hover {
+  color: var(--color-white);
+  padding-right: 4px;
 }
-/*make footer res*/
-@media(max-width:930px){
-    #footer .container {
-        grid-template-columns: repeat(2,1fr);
-    }
+
+/* Bottom bar */
+#footer .footer__bottom {
+  background: #040404;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  padding: 1.1rem 2rem;
 }
-@media(max-width:760px){
-    #footer .container {
-        grid-template-columns: 100%;
-    }
+
+#footer .footer__bottom p {
+  font-size: 0.8rem;
+  color: #444;
+  text-align: center;
+}
+
+#footer .footer__bottom span {
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 930px) {
+  #footer .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  #footer .container {
+    grid-template-columns: 1fr;
+  }
 }

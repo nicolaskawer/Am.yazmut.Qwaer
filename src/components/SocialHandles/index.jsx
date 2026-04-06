@@ -1,4 +1,3 @@
-import React from "react";
 import "./SocialHandles.css";
 import { socialHandles } from "../../data";
 

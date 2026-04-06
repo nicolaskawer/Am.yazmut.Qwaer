@@ -8,22 +8,15 @@ import {
   FaUserFriends,
   FaFacebook,
   FaInstagram,
-  FaLinkedin,
-  FaYoutube,
   FaHome,
   FaBuilding,
+  FaHardHat,
 } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import {
   blog1,
   blog2,
   blog3,
-  member1,
-  member2,
-  member3,
-  member4,
-  member5,
-  member6,
   portfolio1,
   portfolio2,
   portfolio3,
@@ -36,53 +29,32 @@ import {
   user4,
 } from "./assets";
 
+// ─── Navigation ───────────────────────────────────────────────────────────────
 export const navigations = [
-  {
-    label: "אודותינו",
-    to: "about",
-  },
-  {
-    label: "שירותים",
-    to: "services",
-  },
-  {
-    label: "תִיק",
-    to: "portfolio",
-  },
-  
-  {
-    label: "צור קשר",
-    to: "contact",
-  },
+  { label: "אודותינו", to: "about" },
+  { label: "שירותים", to: "services" },
+  { label: "פרויקטים", to: "portfolio" },
+  { label: "המלצות", to: "testimonials" },
+  { label: "צור קשר", to: "contact" },
 ];
 
+// ─── Hero Key Points ───────────────────────────────────────────────────────────
 export const keypoints = [
-  {
-    icon: <FaTools />,
-    title: "אומנות מומחית",
-  },
-  {
-    icon: <FaRegClock />,
-    title:"בזמן, במסגרת התקציב ",
-  },
-  {
-    icon: <FaLightbulb />,
-    title: "פתרונות חדשניים",
-  },
-  {
-    icon: <FaHandsHelping />,
-    title: "גישה ממוקדת ללקוח",
-  },
+  { icon: <FaTools />, title: "אומנות מומחית" },
+  { icon: <FaRegClock />, title: "בזמן, במסגרת התקציב" },
+  { icon: <FaLightbulb />, title: "פתרונות חדשניים" },
+  { icon: <FaHandsHelping />, title: "גישה ממוקדת ללקוח" },
 ];
 
+// ─── Why Choose Us ────────────────────────────────────────────────────────────
 export const whyChooseUs = [
   {
     title: "איכות ללא תחרות",
     icon: <FaCheckCircle />,
-    description: "אומנות מובטחת",
+    description: "אומנות מובטחת בכל פרויקט",
   },
   {
-    title: "אספקה ​​בזמן",
+    title: "אספקה בזמן",
     icon: <FaClock />,
     description: "פרויקטים שהושלמו על פי לוח הזמנים",
   },
@@ -92,230 +64,181 @@ export const whyChooseUs = [
     description: "פתרונות יצירתיים ומודרניים",
   },
   {
-    title: "שירות ממוקד",
+    title: "שירות ממוקד לקוח",
     icon: <FaUserFriends />,
     description: "מתן עדיפות לשביעות רצון הלקוח תמיד",
   },
 ];
 
+// ─── Services ─────────────────────────────────────────────────────────────────
 export const services = [
   {
     title: "בנייה למגורים",
     icon: <FaHome />,
-    description: `בניית בתים מודרניים ואיכותיים המותאמים לחזון שלך.`,
+    description:
+      "בניית בתים פרטיים, וילות ומגדלי דיור מודרניים באיכות פרמיום, המותאמים לחזון ולצרכים האישיים של כל לקוח.",
   },
   {
     title: "פרויקטים מסחריים",
     icon: <FaBuilding />,
-    description: `פיתוח חללי מסחר פונקציונליים וחדשניים לעסקים.`,
+    description:
+      "תכנון וביצוע של בניינים מסחריים, בתי עסק ומרכזי קניות חדשניים, תוך שימוש בפתרונות עיצוב מתקדמים.",
   },
   {
-    title: "לא יודע",
-    icon: <FaTools />,
-    description: `לא יודע`,
+    title: "שיפוץ ותוספות בנייה",
+    icon: <FaHardHat />,
+    description:
+      "שיפוץ מקיף ושדרוג נכסים קיימים, הרחבות ותוספות בנייה, שדרוג חללים פנימיים וחיצוניים לרמה יוקרתית.",
   },
 ];
 
+// ─── Portfolio ────────────────────────────────────────────────────────────────
 export const portfolio = [
   {
-    title: "Luxury Residential Home",
+    title: "בית מגורים יוקרתי",
     image: portfolio1,
-    date: "May 15, 2023",
-    category: "Residential",
-    description: `A stunning 5-bedroom luxury home featuring contemporary architecture, floor-to-ceiling windows, and open-concept living spaces. Built with premium materials and high-end finishes to create a modern yet cozy atmosphere.`,
+    collections: [portfolio1, portfolio2, portfolio3],
+    date: "15 במאי 2023",
+    category: "מגורים",
+    description:
+      "בית 5 חדרים יוקרתי הכולל ארכיטקטורה עכשווית, חלונות רצפה לתקרה ומרחבי מגורים פתוחים. נבנה בחומרים פרמיום וגימורים יוקרתיים ליצירת אווירה מודרנית ומזמינה.",
   },
   {
-    title: "Corporate Office Building",
+    title: "בניין משרדים עסקי",
     image: portfolio2,
-    date: "November 30, 2022",
-    category: "Commercial",
-    description: `A state-of-the-art office building designed to foster innovation and collaboration. This project includes eco-friendly materials, expansive workspaces, and cutting-edge conference rooms.`,
+    collections: [portfolio2, portfolio4, portfolio5],
+    date: "30 בנובמבר 2022",
+    category: "מסחרי",
+    description:
+      "בניין משרדים חדשני שתוכנן לטפח חדשנות ושיתוף פעולה. הפרויקט כולל חומרים ידידותיים לסביבה, מרחבי עבודה מרווחים וחדרי ישיבות מתקדמים.",
   },
   {
-    title: "Retail Shopping Complex",
+    title: "קומפלקס קניות",
     image: portfolio3,
-    date: "July 12, 2024",
-    category: "Retail",
-    description: `A bustling multi-level shopping complex offering retail spaces for international brands. The complex features stylish interiors, escalators, and vibrant common areas, perfect for customer engagement.`,
+    collections: [portfolio3, portfolio1, portfolio6],
+    date: "12 ביולי 2024",
+    category: "קמעונאות",
+    description:
+      "קומפלקס קניות רב-קומתי מרהיב המציע חללי מסחר למותגים בינלאומיים. הקומפלקס כולל עיצוב פנים אלגנטי, מדרגות נעות ואזורי המתנה מוזמנים.",
   },
   {
-    title: "Luxury Resort & Spa",
+    title: "נופש וספא יוקרתי",
     image: portfolio4,
-    date: "February 1, 2023",
-    category: "Hospitality",
-    description: `A 5-star luxury resort and spa set in a tropical paradise. The project includes infinity pools, private villas, and a wellness center, designed with natural materials to blend seamlessly with the surrounding environment.`,
+    collections: [portfolio4, portfolio5, portfolio2],
+    date: "1 בפברואר 2023",
+    category: "אירוח",
+    description:
+      "אתר נופש וספא 5 כוכבים בסביבה טבעית עוצרת נשימה. הפרויקט כולל בריכות אינסוף, וילות פרטיות ומרכז בריאות, תוך שימוש בחומרי טבע המשתלבים בסביבה.",
   },
   {
-    title: "High-Rise Residential Complex",
+    title: "מגדל דיור עירוני",
     image: portfolio5,
-    date: "September 18, 2023",
-    category: "Residential",
-    description: `A contemporary high-rise residential building featuring 100+ modern apartments. This urban living space includes a rooftop terrace, fitness center, and private balconies with city views.`,
+    collections: [portfolio5, portfolio6, portfolio3],
+    date: "18 בספטמבר 2023",
+    category: "מגורים",
+    description:
+      "מגדל מגורים עכשווי הכולל למעלה מ-100 דירות מודרניות עם גג טרסה, מרכז כושר ומרפסות פרטיות עם נוף עירוני עוצר נשימה.",
   },
   {
-    title: "Industrial Warehouse Facility",
+    title: "מתחם תעשייה ולוגיסטיקה",
     image: portfolio6,
-    collections: [portfolio1,portfolio2],
-    date: "March 5, 2022",
-    category: "Industrial",
-    description: `A large-scale industrial warehouse designed for efficient logistics and operations. Featuring high ceilings, wide loading docks, and ample storage space, this project was built to optimize business workflows.`,
+    collections: [portfolio6, portfolio1, portfolio4],
+    date: "5 במרץ 2022",
+    category: "תעשייה",
+    description:
+      "מחסן תעשייתי בהיקף נרחב שתוכנן לתפעול לוגיסטי יעיל. הפרויקט מציע תקרות גבוהות, רציפי פריקה רחבים ושטחי אחסון מרווחים.",
   },
 ];
 
-/*export const teamMembers = [
+// ─── Testimonials ─────────────────────────────────────────────────────────────
+export const testimonials = [
   {
-    fullName: "Chinedu Okafor",
-    image: member1,
-    title: "Lead Architect",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
+    name: "דוד לוי",
+    role: "בעל בית פרטי, רמת גן",
+    image: user1,
+    rating: 5,
+    review:
+      "עם יזמות ובנייה בנה לנו את בית החלומות שלנו. הצוות המקצועי ליווה אותנו בכל שלב, עמד בלוח הזמנים ובתקציב שנקבע, והתוצאה הסופית הייתה מעל לכל ציפייה. ממליץ בחום!",
   },
   {
-    fullName: "Aisha Ibrahim",
-    image: member2,
-    title: "Senior Project Manager",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
+    name: "רחל כהן",
+    role: "מנהלת נכסים, תל אביב",
+    image: user2,
+    rating: 5,
+    review:
+      "ביצענו שיפוץ מקיף לבניין המסחרי שלנו ותוצאות העבודה היו מדהימות. האיכות, הדייקנות והמקצועיות שהפגינו לא נתקלתי בהם אצל אף קבלן אחר. חברה מהמעלה הראשונה!",
   },
   {
-    fullName: "Emmanuel Adeoye",
-    image: member3,
-    title: "Chief Engineer",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
+    name: "משה אברהם",
+    role: "יזם נדל\"ן, ירושלים",
+    image: user3,
+    rating: 5,
+    review:
+      "עבדנו עם עם יזמות על פרויקט של 12 יחידות דיור. הביצוע היה מושלם, הפרויקט הושלם בזמן ובתקציב המתוכנן. ידעו לנהל כל אתגר בצורה מקצועית ויצירתית. שותפות מצוינת.",
   },
   {
-    fullName: "Ngozi Eze",
-    image: member4,
-    title: "Construction Planner",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
+    name: "שרה מזרחי",
+    role: "בעלת וילה, הרצליה פיתוח",
+    image: user4,
+    rating: 5,
+    review:
+      "הפרויקט שלנו כלל תוספת בנייה ועיצוב פנים מחדש לכל הבית. הצוות הגיע בזמן כל יום, עבד בצורה נקייה ומסודרת, והתוצאה הסופית פשוט מדהימה. תודה רבה לכל הצוות!",
   },
-  {
-    fullName: "Tunde Afolabi",
-    image: member5,
-    title: "Site Supervisor",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
-  },
-  {
-    fullName: "Sonia Olufemi",
-    image: member6,
-    title: "Design Coordinator",
-    socialMedias:[
-      {name:"Facebook",icon:<FaFacebook/>,href:"http://facebook.com"},
-      {name:"LinkedIn",icon:<FaLinkedin/>,href:"http://linkedin.com"},
-      {name:"Youtube",icon:<FaYoutube/>,href:"https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1"},
-      {name:"Instagram",icon:<FaInstagram/>,href:"http://instagram.com"},
-    ]
-  },
-];*/
+];
 
-
+// ─── Blog ─────────────────────────────────────────────────────────────────────
 export const blogs = [
   {
     title: "מגמות בנייה חדשניות לשנת 2025",
-    content: `גלה את הטרנדים העדכניים ביותר בבנייה לשנת 2025, החל משיטות בנייה בת קיימא ועד לטכנולוגיות מתקדמות שמשנות את התעשייה.`,
+    content:
+      "גלה את הטרנדים העדכניים ביותר בבנייה לשנת 2025, החל משיטות בנייה בת קיימא ועד לטכנולוגיות מתקדמות שמשנות את התעשייה.",
     image: blog1,
   },
   {
     title: "החשיבות של חומרי בניין ברי קיימא",
-    content: `למד מדוע שימוש בחומרי בניין ברי קיימא הוא חיוני להגנה על הסביבה וכיצד הוא מועיל הן לפרויקט והן לקהילה.`,
+    content:
+      "למד מדוע שימוש בחומרי בניין ברי קיימא הוא חיוני להגנה על הסביבה וכיצד הוא מועיל הן לפרויקט והן לקהילה.",
     image: blog2,
   },
   {
     title: "טיפים מובילים לניהול פרויקטים יעיל",
-    content: `גלה טיפים חיוניים לניהול פרויקטי בנייה ביעילות, כולל אסטרטגיות תזמון, תקציב ואסטרטגיות תקשורת.`,
+    content:
+      "גלה טיפים חיוניים לניהול פרויקטי בנייה ביעילות, כולל אסטרטגיות תזמון, תקציב ותקשורת.",
     image: blog3,
   },
 ];
 
+// ─── Footer Links ─────────────────────────────────────────────────────────────
 export const footer = [
   {
-    title: "Company",
+    title: "החברה",
     routes: [
-      {
-        name: "About Us",
-        href: "#",
-      }
-      /*{
-        name: "Our Team",
-        href: "#",
-      }*/,
-      {
-        name: "Careers",
-        href: "#",
-      },
-      {
-        name: "Contact Us",
-        href: "#",
-      },
+      { name: "אודותינו", href: "#about" },
+      { name: "קריירה", href: "#" },
+      { name: "צור קשר", href: "#contact" },
     ],
   },
   {
-    title: "Services",
+    title: "שירותים",
     routes: [
-      {
-        name: "Residential Construction",
-        href: "#",
-      },
-      {
-        name: "Commercial Projects",
-        href: "#",
-      },
-      {
-        name: "Renovation & Remodeling",
-        href: "#",
-      },
-      {
-        name: "Project Management",
-        href: "#",
-      },
+      { name: "בנייה למגורים", href: "#services" },
+      { name: "פרויקטים מסחריים", href: "#services" },
+      { name: "שיפוץ ותוספות בנייה", href: "#services" },
+      { name: "ניהול פרויקטים", href: "#services" },
     ],
   },
   {
-    title: "Resources",
+    title: "משאבים",
     routes: [
-      {
-        name: "Blog",
-        href: "#",
-      },
-      {
-        name: "Case Studies",
-        href: "#",
-      },
-      {
-        name: "FAQs",
-        href: "#",
-      },
-      {
-        name: "Privacy Policy",
-        href: "#",
-      },
+      { name: "בלוג", href: "#blog" },
+      { name: "מקרי בוחן", href: "#portfolio" },
+      { name: "שאלות נפוצות", href: "#" },
+      { name: "מדיניות פרטיות", href: "#" },
     ],
   },
 ];
 
+// ─── Social Media ─────────────────────────────────────────────────────────────
 export const socialHandles = [
   {
     name: "Facebook",
@@ -327,15 +250,4 @@ export const socialHandles = [
     icon: <FaInstagram />,
     link: "https://www.instagram.com",
   },
-  /*{
-    name: "LinkedIn",
-    icon: <FaLinkedin />,
-    link: "https://www.linkedin.com",
-  },
-  {
-    name: "Youtube",
-    icon: <FaYoutube />,
-    link: "https://www.youtube.com/channel/UCEtnsPZQEd0l1tbr_nDQd5Q?sub_confirmation=1",
-  },
-  */
 ];

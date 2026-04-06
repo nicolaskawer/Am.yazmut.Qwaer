@@ -1,7 +1,7 @@
 #Hero{
-    direction: rtl; /* Set direction to right-to-left */
+    direction: rtl;
     position: relative;
-    background: var(--bg-secondry);
+    background: var(--bg-primary);
     background-size: cover;
 }
 #Hero .container{

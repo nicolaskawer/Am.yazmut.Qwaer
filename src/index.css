@@ -1,47 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+/* ─── Fonts ───────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap");
+
+/* ─── Design Tokens ───────────────────────────────────────────────────────────── */
 :root {
-  /* Primary brand colors */
   --primary: #ffaa00;
   --primary-accent: #cc8800;
-
-  /* Background */
-  --bg-primary: #000000;
-  --bg-secondary: #ffffff;
-
-  /* Text colors */
-  --text-color: #ffffff;
-  --text-muted: #777777;
-  --color-white: #ffffff;
-  --color-black:#000000;
-
-  /* Border */
-  --gray-border: solid 1px #000000;
-  --white-border: solid 1px #ffffff;
-
-  /* Radius */
-  --radius-1: 5px;
-  --radius-2: 1rem;
-  --radius-3: 1.5rem;
-  --radius-4: 2.5rem;
-  --radius-5: 100%;
-  --radius-6:40px;
-
- /*for the shadows*/
   --primary-rgb: 255, 170, 0;
 
-  /* Shadows */
-  --box-shadow: rgba(52, 51, 51, 0.2) 0px 4px 12px;
-  --box-shadow-O: rgba(var(--primary-rgb), 1) 0px 4px 12px;
+  --bg-primary: #0c0c0c;
+  --bg-secondary: #ffffff;
+  --bg-card: #111111;
 
-  /* Typography */
+  --text-color: #f0f0f0;
+  --text-muted: #888888;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.07);
+  --gray-border: solid 1px #1a1a1a;
+  --white-border: solid 1px #ffffff;
+
+  --radius-1: 6px;
+  --radius-2: 12px;
+  --radius-3: 18px;
+  --radius-4: 30px;
+  --radius-5: 100%;
+  --radius-6: 50px;
+
+  --box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --box-shadow-gold: 0 4px 24px rgba(var(--primary-rgb), 0.25);
+
+  --font-body: "Heebo", "Arial", sans-serif;
+  --font-heading: "Frank Ruhl Libre", "Arial", serif;
   --font-size-base: 16px;
   --font-size-large: 18px;
   --font-size-small: 14px;
 
-  /* Transitions */
-  --transition: 0.4s ease-in-out;
+  --transition: 0.35s ease;
+  --transition-fast: 0.2s ease;
 }
-* {
+
+/* ─── Reset ───────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -49,37 +51,50 @@
   border: none;
   text-decoration: none;
 }
-html,
-body {
-  font-family: "Poppins", sans-serif;
-  background: var(--bg-secondary);
-  color: var(--text-color);
-  scrollbar-width: none;
+
+/* ─── Base ────────────────────────────────────────────────────────────────────── */
+html {
   scroll-behavior: smooth;
+  font-size: var(--font-size-base);
 }
+
 body {
-  position: relative;
-  height: 100%;
-  min-height: 100%;
-  max-width: 2000px;
-  margin: auto;
+  font-family: var(--font-body);
   background: var(--bg-primary);
-  overflow: hidden;
-  overflow-y: auto;
+  color: var(--text-color);
+  direction: rtl;
+  max-width: 100vw; /* Prevent horizontal scroll causing black bars */
+  margin: auto;
+  min-height: 100%;
+  scrollbar-width: none;
+  overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  direction: rtl;
+  text-align: right;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.25;
+}
+
+p {
+  direction: rtl;
+  text-align: right;
+  line-height: 1.75;
 }
 
 img {
   width: 100%;
   height: 100%;
-  min-height: 100%;
   object-fit: cover;
   display: block;
-}
-.object__contain {
-  object-fit: contain;
 }
 
 a {
@@ -88,162 +103,288 @@ a {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Alef  '; 
-    direction: rtl;
-    text-align: right;
-    font-weight: bold;  
-    font-weight: 500;
-}
 input,
 textarea {
   background: transparent;
+  font-family: var(--font-body);
 }
+
+/* ─── Layout Utilities ────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 100px 60px;
+  /* Removed overflow: hidden to prevent cutting off tall objects or swipers */
+}
+
 .flex {
   display: flex;
   gap: 1rem;
 }
+
 .flex__center {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
-.primary {
-  color: var(--primary);
-}
-.sec-primary {
-  color: var(--bg-primary);
-}
-.text{
-  color:var(--text-color);
-}
-.muted {
-  color: var(--text-muted);
-}
+
+/* ─── Color Utilities ─────────────────────────────────────────────────────────── */
+.primary            { color: var(--primary); }
+.sec-primary        { color: var(--bg-primary); }
+.text               { color: var(--text-color); }
+.muted              { color: var(--text-muted); }
+.object__contain    { object-fit: contain; }
+
 .text__gradient {
-  background: linear-gradient(var(--primary), #6a11cb);
+  background: linear-gradient(135deg, var(--primary), #ff6b00);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ─── Section Headers ─────────────────────────────────────────────────────────── */
 .heading {
-  font-size: 55px;
-  font-weight: 600;
-  line-height: 55px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.15;
 }
+
 .sub__heading {
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 35px;
-  margin: 1.5rem 0;
-    background: linear-gradient(black, orangered, var(--primary));
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0.75rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, #ff6b00 60%, #ffcc44 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.section__header > .title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Gold line decoration before the label */
+.section__header > .title::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section__header > .description {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.8;
+  margin-top: 0.6rem;
+}
+
+/* ─── Text Clamp ──────────────────────────────────────────────────────────────── */
 .line__clamp__2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 2;
   line-clamp: 2;
+  text-overflow: ellipsis;
 }
+
+/* ══════════════════════════════════════════════════════════
+   BUTTONS — full redesign
+   ══════════════════════════════════════════════════════════ */
+
 .btn {
-  border-radius: var(--radius-1);
-  font-size: var(--font-size-base);
-  padding: 0.6rem 1rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  border: solid 1px var(--primary);
-  transition: background-color var(--transition), transform var(--transition);
+  border-radius: var(--radius-1);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: color 0.28s ease, border-color 0.28s ease, transform 0.22s ease,
+    box-shadow 0.28s ease;
+
+  /* Ghost style by default */
+  background: transparent;
+  border: 1.5px solid rgba(var(--primary-rgb), 0.55);
+  color: var(--primary);
+  z-index: 0;
 }
+
+/* Fill sweep — slides in from right (RTL-appropriate) */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+
 .btn:hover {
-  background: var(--primary);
+  color: #000;
+  border-color: var(--primary);
   transform: translateY(-2px);
-  box-shadow: var(--box-shadow);
-  color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.22);
 }
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── Primary (solid gold) ── */
 .btn.primary {
-  background: var(--primary);
-  color: var(--color-white);
+  background: linear-gradient(135deg, #ffb300 0%, #ff8c00 100%);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
 }
-.btn.sec-primary{
-  background: var(--bg-primary);
-  color: var(--color-white);
+
+/* Shimmer sweep on hover */
+.btn.primary::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-15deg);
+  transition: transform 0.55s ease;
 }
+
+.btn.primary:hover::before {
+  transform: translateX(220%) skewX(-15deg);
+}
+
 .btn.primary:hover {
-  background: var(--primary-accent);
+  background: linear-gradient(135deg, #ffaa00 0%, #cc6600 100%);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.4);
+  transform: translateY(-2px);
 }
+
+/* ── Dark / secondary ── */
+.btn.sec-primary {
+  background: #1a1a1a;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+}
+
+.btn.sec-primary::before {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn.sec-primary:hover {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Icon Badge ──────────────────────────────────────────────────────────────── */
 .icon {
   width: 3rem;
   height: 3rem;
   min-width: 3rem;
   min-height: 3rem;
-  max-width: 3rem;
-  max-height: 3rem;
-  background: var(--bg-primary);
-  font-size: 20px;
+  background: rgba(var(--primary-rgb), 0.1);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  font-size: 1.2rem;
   border-radius: var(--radius-2);
   cursor: pointer;
-  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+  color: var(--primary);
 }
+
 .icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  background: rgba(var(--primary-rgb), 0.2);
 }
+
+/* ─── Overlay & Blur Effects ──────────────────────────────────────────────────── */
 .overlay__div {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .blur__effect {
   position: relative;
 }
+
 .blur__effect::before {
   content: "";
   position: absolute;
-  width: 250px;
-  height: 220px;
-  background: var(--primary);
-  background: linear-gradient(190deg, var(--primary) 0%, transparent 100%);
+  width: 340px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(var(--primary-rgb), 0.16) 0%, transparent 70%);
   border-radius: 50%;
-  -webkit-filter: blur(50px);
-  filter: blur(50px);
+  filter: blur(70px);
   z-index: 0;
+  pointer-events: none;
 }
 
-.section__header > .title {
-  margin-bottom: 20px;
-}
-.section__header > .description {
-  margin: 20px 0;
-  font-size: var(--font-size-base);
-}
-.container {
-  width: 100%;
-  margin: auto;
-  padding: 100px 50px;
-  overflow: hidden;
-}
+/* ─── Error Text ──────────────────────────────────────────────────────────────── */
 .error {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  color: #fc8181;
+  font-size: 0.8rem;
+  margin-top: -0.6rem;
+  margin-bottom: 0.8rem;
   display: block;
+  text-align: right;
 }
 
+/* ══════════════════════════════════════════════════════════
+   REMOVED SCROLL REVEAL due to visibility bugs.
+   Sections are naturally visible.
+   ══════════════════════════════════════════════════════════ */
+
+/* ─── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 930px) {
   .container {
-    padding: 50px 20px;
+    padding: 70px 30px;
   }
 }
+
 @media (max-width: 500px) {
+  .container {
+    padding: 50px 18px;
+  }
+
   .sub__heading {
-    font-size: 18px;
-    line-height: 23px;
+    font-size: 1.5rem;
+  }
+
+  .heading {
+    font-size: 2rem;
   }
 }

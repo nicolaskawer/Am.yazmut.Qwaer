@@ -1,92 +1,131 @@
-.navbar{
-    justify-content: space-between;
-    padding: 0 1rem;
-    width: 100%;
-    position: relative;
-    z-index: 1000;
-    direction: rtl;
-    background: var(--primary);
+/* ─── Navbar ─────────────────────────────────────────────────────────────────── */
+.navbar {
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  direction: rtl;
+  background: rgba(12, 12, 12, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  height: 68px;
 }
 
-.navnar .drop{
-    position: sticky;
-    top: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.785);
-    -webkit-backdrop-filter: blur(90px);
-    backdrop-filter: blur(90px);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    animation: drop 1s;
-    
+/* Scrolled state — slightly more opaque */
+.navbar.drop {
+  background: rgba(8, 8, 8, 0.97);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  animation: dropIn 0.4s ease;
 }
 
-@keyframes drop{
-    0%{top: -100%;}
-    100%{top: 0;}
+@keyframes dropIn {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
 }
-.navbar .navbar__links{
+
+/* Nav links */
+.navbar .navbar__links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navbar .nav__item {
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #aaa;
+  border-radius: var(--radius-1);
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.navbar .nav__item:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active indicator — thin gold underline */
+.navbar .nav__item.active {
+  color: var(--color-white);
+}
+
+.navbar .nav__item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 20px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* CTA button */
+.navbar .btn {
+  background: var(--primary);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  border-radius: var(--radius-4);
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  gap: 0.4rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.navbar .btn:hover {
+  background: var(--primary-accent);
+  color: #000;
+  transform: translateY(-1px);
+}
+
+/* Hamburger menu */
+.navbar .menu__btn {
+  font-size: 1.4rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-1);
+  padding: 0.4rem;
+  color: var(--color-white);
+  display: none;
+  transition: border-color 0.2s ease;
+}
+
+.navbar .menu__btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: none;
+  background: transparent;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1156px) {
+  .navbar .social__handles {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .navbar {
+    padding: 0 1.2rem;
+  }
+
+  .navbar .navbar__links {
+    display: none;
+  }
+
+  .navbar .menu__btn {
     display: flex;
-    gap: 1rem;
-}
-.navbar .nav__item{
-    padding: 20px 22px ;
-    cursor: pointer;
-    position: relative;
-    font-size: var(--font-size-large);
-    font-weight: 500;
-    transition: var(--transition); /*its just build in word that i write in the project*/
-}
-.navbar .nav__item:hover{
-    color:var(--bg-primary)
-}
-.navbar .nav__item.active::after{
-    content:"";
-    position: absolute;
-    bottom:0;
-    left:0;
-    height: 6px;
-    width: 100%;
-    border-radius: var(--radius-4);/*  --radius-4: 2.5rem; */
-    background: var(--primary);
-}
-.navbar .btn{
-    background: var(--bg-secondary);
-    border: var(--gray-border);
-    color:var(--bg-primary);
-    border-radius:var(--radius-4);
-    padding: 0.7rem 1rem;
-    font-size: var(--font-size-base);
-}
-.navbar .btn:hover{
-    background: var(--bg-secondary);
-    color: var(--color-black);
-}
-.navbar .menu__btn{
-    font-size: 30px;
-    background: transparent;
-    display:none;
+  }
 }
 
-/*make the navbar responsive whan manimaizing the page*/
-@media (max-width:1156px){
-    .navbar .social__handles{
-        display: none;
-    }
-}
-@media (max-width:950px){
-    .navbar{
-        padding:0.5rem 1rem
-    }
-    .navbar .navbar__links{
-        display: none;
-    }
-    .navbar .menu__btn{
-        display: flex;
-    }
-}
-@media (max-width:700px){
-    .navbar .btn{
-        display: none;
-    }
+@media (max-width: 700px) {
+  .navbar .btn {
+    display: none;
+  }
 }
