@@ -1,4 +1,4 @@
-/* ─── Footer ─────────────────────────────────────────────────────────────────── */
+/* ─── Footer ──────────────────────────────────────────────────────────────────── */
 #footer {
   direction: rtl;
   background: #080808;
@@ -40,6 +40,9 @@
   margin: 0.55rem 0;
   font-size: 0.88rem;
   transition: color 0.2s ease, padding-right 0.2s ease;
+  min-height: 36px; /* touch-friendly row height */
+  display: flex;
+  align-items: center;
 }
 
 #footer .route:hover {
@@ -65,15 +68,30 @@
   color: var(--primary);
 }
 
-/* Responsive */
+/* ─── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 930px) {
   #footer .container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  /* Brand column spans full width on tablet */
+  #footer .column:first-child {
+    grid-column: 1 / -1;
+  }
+
+  #footer .column:first-child p {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 560px) {
   #footer .container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #footer .column:first-child {
+    grid-column: auto;
   }
 }

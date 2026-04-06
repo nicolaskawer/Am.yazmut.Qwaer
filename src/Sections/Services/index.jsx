@@ -20,7 +20,7 @@ const Services = () => (
             </Link>
           </div>
           <div className="object__contain">
-            <img src={sketch} alt="" aria-hidden="true" />
+            <img src={sketch} alt="" aria-hidden="true" loading="lazy" />
           </div>
         </div>
 

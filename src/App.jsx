@@ -1,5 +1,6 @@
 import { useAccessibility } from "./accessibility";
 import useScrollReveal from "./hook/useScrollReveal";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Navbar from "./Sections/Navbar";
 import Hero from "./Sections/Hero";
 import About from "./Sections/About";
@@ -20,7 +21,7 @@ function App() {
   useScrollReveal();
 
   return (
-    <>
+    <ErrorBoundary>
       <Navbar />
       <Hero />
       <About />
@@ -31,7 +32,7 @@ function App() {
       <Blog />
       <Contact />
       <Footer />
-    </>
+    </ErrorBoundary>
   );
 }
 

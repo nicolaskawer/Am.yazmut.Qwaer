@@ -8,7 +8,7 @@ const About = () => (
     <div className="overlay__div">
       <div className="container">
         <div className="about__image">
-          <img src={about} alt="הצוות שלנו בעבודה" />
+          <img src={about} alt="הצוות שלנו בעבודה" loading="lazy" />
         </div>
 
         <div className="about__content">

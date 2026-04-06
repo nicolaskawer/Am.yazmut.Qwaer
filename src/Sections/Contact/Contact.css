@@ -1,4 +1,4 @@
-/* ─── Contact Section ───────────────────────────────────────────────────────── */
+/* ─── Contact Section ────────────────────────────────────────────────────────── */
 #contact {
   direction: rtl;
   background: #0e0e0e;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-/* Ambient glow top-right */
+/* Ambient glow */
 #contact::before {
   content: "";
   position: absolute;
@@ -28,7 +28,7 @@
   z-index: 1;
 }
 
-/* ─── Info Panel (right column in RTL) ───────────────────────────────────────── */
+/* ─── Info Panel ──────────────────────────────────────────────────────────────── */
 .contact__info-panel {
   display: flex;
   flex-direction: column;
@@ -102,7 +102,6 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-white);
-  /* Phone/email are LTR text in an RTL page — lock direction */
   unicode-bidi: embed;
   direction: ltr;
   text-align: left;
@@ -112,7 +111,7 @@
   color: var(--primary);
 }
 
-/* Divider between info cards and badge */
+/* Trust badge */
 .contact__badge {
   margin-top: 0.5rem;
   background: rgba(var(--primary-rgb), 0.07);
@@ -132,7 +131,7 @@
   color: var(--primary);
 }
 
-/* ─── Form ───────────────────────────────────────────────────────────────────── */
+/* ─── Form ────────────────────────────────────────────────────────────────────── */
 .contact__form {
   background: #131313;
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -148,7 +147,7 @@
 }
 
 .contact__form .form__header .sub__heading {
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
   margin-bottom: 0.4rem;
 }
 
@@ -158,7 +157,7 @@
   line-height: 1.7;
 }
 
-/* Field group: label + input + error */
+/* Field group */
 .field__group {
   display: flex;
   flex-direction: column;
@@ -177,7 +176,7 @@
 .control {
   display: block;
   width: 100%;
-  height: 44px;
+  height: 48px; /* WCAG touch target */
   padding: 0 14px;
   background: #0c0c0c;
   border: 1.5px solid rgba(255, 255, 255, 0.1);
@@ -190,6 +189,9 @@
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
   resize: none;
   margin-bottom: 1rem;
+  /* Prevent inputs from causing horizontal overflow on mobile */
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .control::placeholder {
@@ -207,7 +209,7 @@
 }
 
 textarea.control {
-  height: 110px;
+  height: 120px;
   padding: 12px 14px;
   line-height: 1.6;
 }
@@ -245,6 +247,7 @@ textarea.control {
 .form__submit {
   margin-top: 0.5rem;
   width: 100%;
+  min-height: 48px; /* WCAG touch target */
   padding: 0.85rem 1rem;
   background: var(--primary);
   color: #000;
@@ -257,28 +260,27 @@ textarea.control {
   transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 
-.form__submit:hover {
+.form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.form__submit:hover:not(:disabled) {
   background: var(--primary-accent);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
 }
 
-.form__submit:active {
+.form__submit:active:not(:disabled) {
   transform: translateY(0);
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+/* ─── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 960px) {
   #contact .container {
     grid-template-columns: 1fr;
-  }
-
-  /* On mobile, info panel comes after the form */
-  #contact .container {
-    direction: ltr;
-  }
-  #contact .container > * {
-    direction: rtl;
+    gap: 2rem;
   }
 }
 
@@ -289,5 +291,9 @@ textarea.control {
 
   .contact__form {
     padding: 1.4rem 1.1rem;
+  }
+
+  .contact__card:hover {
+    transform: none; /* avoid accidental side-scroll on touch */
   }
 }

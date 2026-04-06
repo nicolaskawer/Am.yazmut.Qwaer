@@ -1,7 +1,8 @@
-/* ─── Portfolio Section ─────────────────────────────────────────────────────── */
+/* ─── Portfolio Section ──────────────────────────────────────────────────────── */
 #portfolio {
   direction: rtl;
   background: var(--bg-primary);
+  overflow: hidden;
 }
 
 .portfolio__header {
@@ -9,7 +10,7 @@
   max-width: 680px;
 }
 
-/* ─── Grid ───────────────────────────────────────────────────────────────────── */
+/* ─── Grid ────────────────────────────────────────────────────────────────────── */
 .portfolio__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,7 +18,7 @@
   margin-top: 2.5rem;
 }
 
-/* ─── Card ───────────────────────────────────────────────────────────────────── */
+/* ─── Card ────────────────────────────────────────────────────────────────────── */
 .portfolio__card {
   background: #111111;
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -35,7 +36,7 @@
   box-shadow: 0 12px 40px rgba(var(--primary-rgb), 0.15);
 }
 
-/* ─── Card Image ─────────────────────────────────────────────────────────────── */
+/* ─── Card Image ──────────────────────────────────────────────────────────────── */
 .portfolio__card-image {
   position: relative;
   width: 100%;
@@ -54,7 +55,7 @@
   transform: scale(1.06);
 }
 
-/* ─── Overlay on Hover ───────────────────────────────────────────────────────── */
+/* ─── Overlay on Hover ────────────────────────────────────────────────────────── */
 .portfolio__card-overlay {
   position: absolute;
   inset: 0;
@@ -66,6 +67,14 @@
   gap: 0.5rem;
   opacity: 0;
   transition: opacity 0.35s ease;
+}
+
+/* On touch devices show overlay permanently (no hover) */
+@media (hover: none) {
+  .portfolio__card-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.35);
+  }
 }
 
 .portfolio__card:hover .portfolio__card-overlay,
@@ -85,7 +94,7 @@
   letter-spacing: 0.03em;
 }
 
-/* ─── Card Body ──────────────────────────────────────────────────────────────── */
+/* ─── Card Body ───────────────────────────────────────────────────────────────── */
 .portfolio__card-body {
   padding: 1.1rem 1.2rem 1.3rem;
 }
@@ -128,11 +137,11 @@
   text-align: right;
 }
 
-/* ─── Modal Backdrop ─────────────────────────────────────────────────────────── */
+/* ─── Modal Backdrop ──────────────────────────────────────────────────────────── */
 .modal__backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   display: flex;
@@ -141,6 +150,7 @@
   z-index: 1000;
   padding: 1rem;
   animation: fadeIn 0.25s ease;
+  overflow-y: auto; /* allow scroll if modal taller than screen */
 }
 
 @keyframes fadeIn {
@@ -148,7 +158,7 @@
   to   { opacity: 1; }
 }
 
-/* ─── Modal Box ──────────────────────────────────────────────────────────────── */
+/* ─── Modal Box ───────────────────────────────────────────────────────────────── */
 .modal__box {
   position: relative;
   background: #111111;
@@ -160,6 +170,8 @@
   overflow-y: auto;
   animation: slideUp 0.3s ease;
   direction: rtl;
+  /* Prevent box itself from causing horizontal scroll */
+  overflow-x: hidden;
 }
 
 @keyframes slideUp {
@@ -167,7 +179,7 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Modal Close ────────────────────────────────────────────────────────────── */
+/* ─── Modal Close ─────────────────────────────────────────────────────────────── */
 .modal__close {
   position: absolute;
   top: 0.85rem;
@@ -176,14 +188,14 @@
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  width: 36px;
-  height: 36px;
+  width: 44px;   /* WCAG touch target */
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -192,7 +204,7 @@
   transform: scale(1.1);
 }
 
-/* ─── Modal Swiper ───────────────────────────────────────────────────────────── */
+/* ─── Modal Swiper ────────────────────────────────────────────────────────────── */
 .modal__swiper-wrapper {
   position: relative;
 }
@@ -218,8 +230,8 @@
   background: rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -234,13 +246,8 @@
   border-color: var(--primary);
 }
 
-.modal__prev {
-  right: 0.85rem;
-}
-
-.modal__next {
-  left: 0.85rem;
-}
+.modal__prev { right: 0.85rem; }
+.modal__next { left: 0.85rem; }
 
 /* Swiper pagination dots */
 .modal__swiper .swiper-pagination-bullet {
@@ -254,7 +261,7 @@
   border-radius: 4px;
 }
 
-/* ─── Modal Info ─────────────────────────────────────────────────────────────── */
+/* ─── Modal Info ──────────────────────────────────────────────────────────────── */
 .modal__info {
   padding: 1.4rem 1.6rem 1.8rem;
 }
@@ -279,23 +286,40 @@
   line-height: 1.75;
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+/* ─── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .portfolio__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .portfolio__grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Full-screen modal on small phones */
+  .modal__backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal__box {
+    max-height: 95vh;
+    border-radius: var(--radius-2) var(--radius-2) 0 0;
+    max-width: 100%;
   }
 
   .modal__swiper {
-    height: 260px;
+    height: 240px;
   }
 
   .modal__title {
     font-size: 1.15rem;
+  }
+
+  .modal__info {
+    padding: 1rem 1.1rem 1.4rem;
   }
 }

@@ -1,75 +1,101 @@
-#Hero{
-    direction: rtl;
-    position: relative;
-    background: var(--bg-primary);
-    background-size: cover;
-}
-#Hero .container{
-    background: var(--bg-primary);
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 40px;
-    min-height: 100vh;
-}
-#Hero .hero__content{
-    margin-bottom: 30px;
-}
-#Hero .hero__content .heading{
-    margin: 1.5rem 0;
-    background: linear-gradient(black,orangered,var(--primary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 67px;
-}
-#Hero .hero__content .description{
-    font-size: var(--font-size-large);
-}
-#Hero .buttons__wrapper{
-    justify-content: flex-start;
-    margin-top: 20px;
-}
-/*make Hero responsive*/
-@media (min-width:1500px){
-    Hero .container{
-        min-height: auto;
-    }
-}
-@media (max-width:1260px){
-    #Hero .hero__content .heading{
-        font-size: 40px;
-        line-height: 45px;
-    }
-    #Hero .hero__content .description{
-        font-size: var(--font-size-base);
-    }
-}
-@media (max-width:1260px){
-    #Hero .container{
-        display:block;
-    }
-    #Hero .hero__content{
-        text-align: center;
-    }
-    #Hero .buttons__wrapper{
-        justify-content: center;
-    }
-    #Hero .hero__image-container{
-        max-width: 400px;
-        margin: auto;
-        margin-top: 40px;
-    }
-}
-@media (max-width:768px){
-    #Hero.blur__effect::before{
-        top: -150px;
-    }
-}
-@media (max-width:500px){
-    #Hero.hero__content .heading{
-        font-size: 25px;
-        line-height: 30px;
-    }
+/* ─── Hero Section ────────────────────────────────────────────────────────────── */
+#Hero {
+  direction: rtl;
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden; /* prevent any child from causing horizontal scroll */
 }
 
+#Hero .container {
+  background: var(--bg-primary);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-top: 40px;
+  min-height: calc(100vh - 68px); /* subtract navbar height */
+  align-items: center;
+}
 
+#Hero .hero__content {
+  margin-bottom: 30px;
+}
+
+#Hero .hero__content .heading {
+  margin: 1.5rem 0;
+  background: linear-gradient(160deg, #ffffff 0%, orangered 55%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.18;
+}
+
+#Hero .hero__content .description {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.75;
+}
+
+#Hero .buttons__wrapper {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 20px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────────── */
+
+/* Large screens — contain the hero */
+@media (min-width: 1500px) {
+  #Hero .container {
+    min-height: auto;
+  }
+}
+
+/* Tablet — stack hero to single column */
+@media (max-width: 900px) {
+  #Hero .container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  #Hero .hero__content {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  #Hero .buttons__wrapper {
+    justify-content: center;
+  }
+
+  #Hero .hero__image-container {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile — further reduce image, tighten spacing */
+@media (max-width: 480px) {
+  #Hero .hero__image-container {
+    max-width: 260px;
+  }
+
+  #Hero .buttons__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #Hero .buttons__wrapper .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  #Hero.blur__effect::before {
+    top: -150px;
+    width: 240px;
+    height: 240px;
+  }
+}
