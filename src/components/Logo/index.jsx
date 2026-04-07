@@ -7,7 +7,7 @@ const Logo = () => {
         <img src={logo} alt="" />
       </div>
       <h3>
-        A.M<span className="text__gradient"> KAWER YAZAMUT</span>
+        א.מ.<span className="text__gradient"> יזמות ובנייה כללית</span>
       </h3>
     </div>
   );

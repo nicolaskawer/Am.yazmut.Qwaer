@@ -30,7 +30,7 @@ const Footer = () => (
     <div className="footer__bottom">
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <span>עם יזמות ובנייה</span> — כל הזכויות שמורות
+        <span>א.מ. יזמות ובנייה כללית</span> — כל הזכויות שמורות
       </p>
     </div>
   </footer>
