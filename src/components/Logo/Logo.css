@@ -2,6 +2,20 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  gap: 8px;
+}
+
+.logo__container h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .logo__container h3 {
+    font-size: 0.85rem;
+  }
 }
 
 /* Override global img rule — logo is wide landscape, needs fixed height + auto width */
