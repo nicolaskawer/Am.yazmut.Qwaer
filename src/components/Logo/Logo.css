@@ -1,24 +1,21 @@
 .logo__container {
-  gap: 8px;
-}
-
-.logo__container .logo {
-  width: 46px;
-  height: 46px;
-  border-radius: var(--radius-1);
-  overflow: hidden;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.logo__container .logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Override global img rule — logo is wide landscape, needs fixed height + auto width */
+.logo__container .logo__img {
+  height: 52px !important;
+  width: auto !important;
+  max-width: 160px;
+  object-fit: contain !important;
   display: block;
 }
 
-.logo__container h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  white-space: nowrap;
+@media (max-width: 480px) {
+  .logo__container .logo__img {
+    height: 40px !important;
+    max-width: 130px;
+  }
 }

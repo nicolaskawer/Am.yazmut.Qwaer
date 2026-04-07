@@ -1,16 +1,10 @@
 import { logo } from "../../assets";
 import "./Logo.css";
-const Logo = () => {
-  return (
-    <div className="flex__center logo__container">
-      <div className="logo">
-        <img src={logo} alt="" />
-      </div>
-      <h3>
-        ע.מ<span className="text__gradient"> יזמות כללית</span>
-      </h3>
-    </div>
-  );
-};
+
+const Logo = () => (
+  <div className="logo__container">
+    <img src={logo} alt="ע.מ יזמות כללית" className="logo__img" />
+  </div>
+);
 
 export default Logo;

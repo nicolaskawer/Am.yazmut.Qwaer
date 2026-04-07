@@ -1,6 +1,6 @@
-export { default as logo }       from "./logo.svg.png";
+export { default as logo }       from "./logo.jpeg";
+export { default as about }      from "./about.jpeg";
 export { default as crane }      from "./crane.png";
-export { default as about }      from "./about.jpg";
 export { default as sketch }     from "./sketch.png";
 export { default as portfolio1 } from "./portfolio1.jpg";
 export { default as portfolio2 } from "./portfolio2.jpg";
