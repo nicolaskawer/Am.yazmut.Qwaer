@@ -23,7 +23,7 @@ const Testimonials = () => (
       <SectionHeader
         label="לקוחות מרוצים"
         heading="מה אומרים עלינו"
-        description="הלקוחות שלנו הם הכוח המניע שלנו. כך הם מתארים את החוויה שלהם עם א.מ. יזמות ובנייה כללית."
+        description="הלקוחות שלנו הם הכוח המניע שלנו. כך הם מתארים את החוויה שלהם עם ע.מ יזמות כללית."
         className="testimonials__header"
       />
 
