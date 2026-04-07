@@ -1,19 +1,24 @@
-.logo__container{
-    gap: 5px;
+.logo__container {
+  gap: 8px;
 }
-.logo__container .logo{
-   width: 40px; 
-   height:40px ;
+
+.logo__container .logo {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-1);
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.logo__container img{
-    object-fit: contain;
+
+.logo__container .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.logo__container h2{
-    font-size: 30px;
-}
-.logo__container img{
-    object-fit: contain;
-}
-.logo__container h2{
-    font-size: 30px
+
+.logo__container h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
