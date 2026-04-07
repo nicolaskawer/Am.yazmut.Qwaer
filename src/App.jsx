@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 function App() {
   // Run once at the root — not per-component
   useAccessibility();
+  useScrollReveal();
 
   return (
     <ErrorBoundary>
