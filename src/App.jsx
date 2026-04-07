@@ -22,15 +22,24 @@ function App() {
 
   return (
     <ErrorBoundary>
+      {/* Skip link: the very first focusable element — screen readers jump straight to #main-content */}
+      <a href="#main-content" className="skip__link">
+        דלג לתוכן הראשי
+      </a>
+
       <Navbar />
-      <Hero />
-      <About />
-      <WhyChooseUs />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Blog />
-      <Contact />
+
+      <main id="main-content">
+        <Hero />
+        <About />
+        <WhyChooseUs />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <Blog />
+        <Contact />
+      </main>
+
       <Footer />
     </ErrorBoundary>
   );

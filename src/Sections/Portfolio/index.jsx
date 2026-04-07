@@ -6,23 +6,81 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Pagination } from "swiper/modules";
 import SectionHeader from "../../components/SectionHeader";
 
+// All focusable element types inside a container
+const FOCUSABLE = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'textarea:not([disabled])',
+  'select:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(", ");
+
 const Portfolio = () => {
   const [activeProject, setActiveProject] = useState(null);
-  const swiperRef = useRef(null);
+  const swiperRef   = useRef(null);
+  const modalRef    = useRef(null);   // ref on the modal box
+  const triggerRef  = useRef(null);   // ref to the card that opened the modal
 
-  const closeModal = () => setActiveProject(null);
+  const openModal = (item, cardEl) => {
+    triggerRef.current = cardEl;      // remember who opened the modal
+    setActiveProject(item);
+  };
 
-  // ESC key + body scroll lock
+  const closeModal = () => {
+    setActiveProject(null);
+    // Return focus to the card that triggered the modal
+    triggerRef.current?.focus();
+  };
+
+  // ESC key, body scroll lock, focus trap
   useEffect(() => {
     if (!activeProject) return;
-    const handleKey = (e) => { if (e.key === "Escape") setActiveProject(null); };
+
+    // Move focus into the modal on open
+    requestAnimationFrame(() => {
+      const first = modalRef.current?.querySelectorAll(FOCUSABLE)?.[0];
+      first?.focus();
+    });
+
+    const handleKey = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+        return;
+      }
+
+      // Focus trap: intercept Tab / Shift+Tab
+      if (e.key === "Tab") {
+        const focusable = Array.from(
+          modalRef.current?.querySelectorAll(FOCUSABLE) ?? []
+        );
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last  = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    };
+
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
+
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
-  }, [activeProject]);
+  }, [activeProject]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Derive the slide images, always an array with at least the main image
   const slides = activeProject
@@ -46,21 +104,20 @@ const Portfolio = () => {
             <div
               key={item.title}
               className="portfolio__card"
-              onClick={() => setActiveProject(item)}
-              onKeyDown={(e) => e.key === "Enter" && setActiveProject(item)}
+              onClick={(e) => openModal(item, e.currentTarget)}
+              onKeyDown={(e) => e.key === "Enter" && openModal(item, e.currentTarget)}
               role="button"
               tabIndex={0}
               aria-label={`פתח פרויקט: ${item.title}`}
             >
               <div className="portfolio__card-image">
-                {/* Eager-load first 3 images; lazy-load the rest */}
                 <img
                   src={item.image}
                   alt={item.title}
                   loading={i < 3 ? "eager" : "lazy"}
                 />
-                <div className="portfolio__card-overlay">
-                  <FaEye className="overlay__icon" aria-hidden="true" />
+                <div className="portfolio__card-overlay" aria-hidden="true">
+                  <FaEye className="overlay__icon" />
                   <span className="overlay__text">צפה בפרויקט</span>
                 </div>
               </div>
@@ -85,15 +142,15 @@ const Portfolio = () => {
           onClick={(e) => e.target === e.currentTarget && closeModal()}
           role="dialog"
           aria-modal="true"
-          aria-label={`פרויקט: ${activeProject.title}`}
+          aria-labelledby="modal-title"
         >
-          <div className="modal__box">
+          <div className="modal__box" ref={modalRef}>
             <button
               className="modal__close"
               onClick={closeModal}
               aria-label="סגור חלון"
             >
-              <FaTimes />
+              <FaTimes aria-hidden="true" />
             </button>
 
             <div className="modal__swiper-wrapper">
@@ -105,19 +162,22 @@ const Portfolio = () => {
                 loop={slides.length > 1}
                 dir="rtl"
                 className="modal__swiper"
+                a11y={{
+                  prevSlideMessage: "תמונה קודמת",
+                  nextSlideMessage: "תמונה הבאה",
+                }}
               >
                 {slides.map((img, idx) => (
                   <SwiperSlide key={idx}>
                     <img
                       src={img}
-                      alt={`${activeProject.title} — תמונה ${idx + 1}`}
+                      alt={`${activeProject.title} — תמונה ${idx + 1} מתוך ${slides.length}`}
                       className="modal__slide-img"
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
 
-              {/* Only render nav when there is more than one image */}
               {slides.length > 1 && (
                 <>
                   <button
@@ -125,14 +185,14 @@ const Portfolio = () => {
                     onClick={() => swiperRef.current?.slidePrev()}
                     aria-label="תמונה קודמת"
                   >
-                    <FaChevronRight />
+                    <FaChevronRight aria-hidden="true" />
                   </button>
                   <button
                     className="modal__nav modal__next"
                     onClick={() => swiperRef.current?.slideNext()}
                     aria-label="תמונה הבאה"
                   >
-                    <FaChevronLeft />
+                    <FaChevronLeft aria-hidden="true" />
                   </button>
                 </>
               )}
@@ -143,7 +203,8 @@ const Portfolio = () => {
                 <span className="portfolio__tag">{activeProject.category}</span>
                 <span className="portfolio__date">{activeProject.date}</span>
               </div>
-              <h3 className="modal__title">{activeProject.title}</h3>
+              {/* id="modal-title" ties the dialog's aria-labelledby */}
+              <h3 className="modal__title" id="modal-title">{activeProject.title}</h3>
               <p className="modal__desc">{activeProject.description}</p>
             </div>
           </div>
