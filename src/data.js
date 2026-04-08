@@ -2,10 +2,6 @@ import {
   FaTools,
   FaLightbulb,
   FaHandsHelping,
-  FaCheckCircle,
-  FaClock,
-  FaDraftingCompass,
-  FaUserFriends,
   FaFacebook,
   FaInstagram,
   FaHome,
@@ -16,21 +12,17 @@ import { FaRegClock } from "react-icons/fa6";
 import {
   blog1,
   blog2,
-  portfolio1,
-  portfolio2,
-  portfolio3,
-  portfolio4,
-  portfolio5,
-  portfolio6,
-  user1,
-  user2,
-  user3,
-  user4,
-  rishon01, rishon02, rishon03, rishon04, rishon05,
-  rishon06, rishon07, rishon08, rishon09, rishon10,
+  rishon01, rishon02, rishon04,
+  rishon06, rishon07, rishon09,
   rishon11, rishon12, rishon13, rishon14, rishon15,
   rishon16, rishon17, rishon18, rishon19, rishon20,
   rishon21, rishon22, rishon23,
+  lod01, lod02, lod03, lod04, lod05, lod06, lod07,
+  lod09, lod10, lod11, lod12, lod13, lod14, lod15,
+  lod16, lod17, lod18, lod19, lod20, lod21, lod22,
+  lod23, lod24, lod25, lod26, lod27, lod28,
+  rehovot01, rehovot02, rehovot03, rehovot04, rehovot05, rehovot06,
+  rishon2_01, rishon2_02, rishon2_03, rishon2_04, rishon2_05, rishon2_06,
 } from "./assets";
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
@@ -38,7 +30,6 @@ export const navigations = [
   { label: "אודותינו", to: "about" },
   { label: "שירותים", to: "services" },
   { label: "פרויקטים", to: "portfolio" },
-  { label: "המלצות", to: "testimonials" },
   { label: "צור קשר", to: "contact" },
 ];
 
@@ -48,30 +39,6 @@ export const keypoints = [
   { icon: <FaRegClock />, title: "בזמן, במסגרת התקציב" },
   { icon: <FaLightbulb />, title: "פתרונות חדשניים" },
   { icon: <FaHandsHelping />, title: "גישה ממוקדת ללקוח" },
-];
-
-// ─── Why Choose Us ────────────────────────────────────────────────────────────
-export const whyChooseUs = [
-  {
-    title: "איכות ללא תחרות",
-    icon: <FaCheckCircle />,
-    description: "אומנות מובטחת בכל פרויקט",
-  },
-  {
-    title: "אספקה בזמן",
-    icon: <FaClock />,
-    description: "פרויקטים שהושלמו על פי לוח הזמנים",
-  },
-  {
-    title: "עיצובים חדשניים",
-    icon: <FaDraftingCompass />,
-    description: "פתרונות יצירתיים ומודרניים",
-  },
-  {
-    title: "שירות ממוקד לקוח",
-    icon: <FaUserFriends />,
-    description: "מתן עדיפות לשביעות רצון הלקוח תמיד",
-  },
 ];
 
 // ─── Services ─────────────────────────────────────────────────────────────────
@@ -101,10 +68,10 @@ export const portfolio = [
   {
     title: "פרויקט מגורים — ראשון לציון",
     address: "שדרות יעקב 58, ראשון לציון",
-    image: rishon01,
+    image: rishon09,
     collections: [
-      rishon01, rishon02, rishon03, rishon04, rishon05,
-      rishon06, rishon07, rishon08, rishon09, rishon10,
+      rishon09, rishon01, rishon02, rishon04,
+      rishon06, rishon07,
       rishon11, rishon12, rishon13, rishon14, rishon15,
       rishon16, rishon17, rishon18, rishon19, rishon20,
       rishon21, rishon22, rishon23,
@@ -117,86 +84,58 @@ export const portfolio = [
       "פרויקט בנייה למגורים ברחוב שדרות יעקב 58, ראשון לציון. הפרויקט כולל עבודות בנייה, שיפוץ וגימור ברמה גבוהה, תוך שימוש בחומרים איכותיים ותשומת לב לפרטים הקטנים.",
   },
   {
-    title: "בניין משרדים עסקי",
-    image: portfolio2,
-    collections: [portfolio2, portfolio4, portfolio5],
-    date: "30 בנובמבר 2022",
-    category: "מסחרי",
-    description:
-      "בניין משרדים חדשני שתוכנן לטפח חדשנות ושיתוף פעולה. הפרויקט כולל חומרים ידידותיים לסביבה, מרחבי עבודה מרווחים וחדרי ישיבות מתקדמים.",
-  },
-  {
-    title: "קומפלקס קניות",
-    image: portfolio3,
-    collections: [portfolio3, portfolio1, portfolio6],
-    date: "12 ביולי 2024",
-    category: "קמעונאות",
-    description:
-      "קומפלקס קניות רב-קומתי מרהיב המציע חללי מסחר למותגים בינלאומיים. הקומפלקס כולל עיצוב פנים אלגנטי, מדרגות נעות ואזורי המתנה מוזמנים.",
-  },
-  {
-    title: "נופש וספא יוקרתי",
-    image: portfolio4,
-    collections: [portfolio4, portfolio5, portfolio2],
-    date: "1 בפברואר 2023",
-    category: "אירוח",
-    description:
-      "אתר נופש וספא 5 כוכבים בסביבה טבעית עוצרת נשימה. הפרויקט כולל בריכות אינסוף, וילות פרטיות ומרכז בריאות, תוך שימוש בחומרי טבע המשתלבים בסביבה.",
-  },
-  {
-    title: "מגדל דיור עירוני",
-    image: portfolio5,
-    collections: [portfolio5, portfolio6, portfolio3],
-    date: "18 בספטמבר 2023",
+    title: "פרוייקט מגורים — לוד",
+    address: "הרב חיים חורי 1, לוד",
+    image: lod01,
+    collections: [
+      lod01, lod02, lod03, lod04, lod05, lod06, lod07,
+      lod09, lod10, lod11, lod12, lod13, lod14, lod15,
+      lod16, lod17, lod18, lod19, lod20, lod21, lod22,
+      lod23, lod24, lod25, lod26, lod27, lod28,
+    ],
+    date: "6 ביולי 2022",
     category: "מגורים",
     description:
-      "מגדל מגורים עכשווי הכולל למעלה מ-100 דירות מודרניות עם גג טרסה, מרכז כושר ומרפסות פרטיות עם נוף עירוני עוצר נשימה.",
+      "פרויקט בנייה למגורים ברחוב הרב חיים חורי 1, לוד. הפרויקט כולל עבודות בנייה, שיפוץ וגימור ברמה גבוהה, תוך שימוש בחומרים איכותיים ותשומת לב לפרטים הקטנים.",
   },
   {
-    title: "מתחם תעשייה ולוגיסטיקה",
-    image: portfolio6,
-    collections: [portfolio6, portfolio1, portfolio4],
-    date: "5 במרץ 2022",
-    category: "תעשייה",
+    title: "בית מגורים — רחובות",
+    address: "מרגולין 21, רחובות",
+    image: rehovot01,
+    collections: [
+      rehovot01, rehovot02, rehovot03, rehovot04, rehovot05, rehovot06,
+      "/videos/rehovot/rehovot_v1.mov",
+      "/videos/rehovot/rehovot_v2.mov",
+      "/videos/rehovot/rehovot_v3.mov",
+      "/videos/rehovot/rehovot_v4.mov",
+      "/videos/rehovot/rehovot_v5.mov",
+      "/videos/rehovot/rehovot_v6.mov",
+    ],
+    date: "2 באוגוסט 2024",
+    category: "מגורים",
     description:
-      "מחסן תעשייתי בהיקף נרחב שתוכנן לתפעול לוגיסטי יעיל. הפרויקט מציע תקרות גבוהות, רציפי פריקה רחבים ושטחי אחסון מרווחים.",
+      "פרויקט בנייה למגורים ברחוב מרגולין 21, רחובות. הפרויקט כולל עבודות בנייה, שיפוץ וגימור ברמה גבוהה, תוך שימוש בחומרים איכותיים ותשומת לב לפרטים הקטנים.",
   },
-];
+  {
+    title: "פרוייקט מגורים — ראשון לציון",
+    address: "קצרין 6, ראשון לציון",
+    image: rishon2_01,
+    collections: [
+      rishon2_01, rishon2_02, rishon2_03, rishon2_04, rishon2_05, rishon2_06,
+      "/videos/rishon2/rishon2_v1.mov",
+      "/videos/rishon2/rishon2_v2.mp4",
+      "/videos/rishon2/rishon2_v3.mov",
+      "/videos/rishon2/rishon2_v4.mov",
+      "/videos/rishon2/rishon2_v5.mov",
+      "/videos/rishon2/rishon2_v6.mp4",
+      "/videos/rishon2/rishon2_v7.mov",
+    ],
+    date: "31 במרץ 2024",
+    category: "מגורים",
+    description:
+      "פרויקט בנייה למגורים ברחוב קצרין 6, ראשון לציון. הפרויקט כולל עבודות בנייה, שיפוץ וגימור ברמה גבוהה, תוך שימוש בחומרים איכותיים ותשומת לב לפרטים הקטנים.",
+  },
 
-// ─── Testimonials ─────────────────────────────────────────────────────────────
-export const testimonials = [
-  {
-    name: "דוד לוי",
-    role: "בעל בית פרטי, רמת גן",
-    image: user1,
-    rating: 5,
-    review:
-      "ע.מ יזמות כללית בנה לנו את בית החלומות שלנו. הצוות המקצועי ליווה אותנו בכל שלב, עמד בלוח הזמנים ובתקציב שנקבע, והתוצאה הסופית הייתה מעל לכל ציפייה. ממליץ בחום!",
-  },
-  {
-    name: "רחל כהן",
-    role: "מנהלת נכסים, תל אביב",
-    image: user2,
-    rating: 5,
-    review:
-      "ביצענו שיפוץ מקיף לבניין המסחרי שלנו ותוצאות העבודה היו מדהימות. האיכות, הדייקנות והמקצועיות שהפגינו לא נתקלתי בהם אצל אף קבלן אחר. חברה מהמעלה הראשונה!",
-  },
-  {
-    name: "משה אברהם",
-    role: "יזם נדל\"ן, ירושלים",
-    image: user3,
-    rating: 5,
-    review:
-      "עבדנו עם עם יזמות על פרויקט של 12 יחידות דיור. הביצוע היה מושלם, הפרויקט הושלם בזמן ובתקציב המתוכנן. ידעו לנהל כל אתגר בצורה מקצועית ויצירתית. שותפות מצוינת.",
-  },
-  {
-    name: "שרה מזרחי",
-    role: "בעלת וילה, הרצליה פיתוח",
-    image: user4,
-    rating: 5,
-    review:
-      "הפרויקט שלנו כלל תוספת בנייה ועיצוב פנים מחדש לכל הבית. הצוות הגיע בזמן כל יום, עבד בצורה נקייה ומסודרת, והתוצאה הסופית פשוט מדהימה. תודה רבה לכל הצוות!",
-  },
 ];
 
 // ─── Blog ─────────────────────────────────────────────────────────────────────
@@ -237,7 +176,6 @@ export const footer = [
   {
     title: "משאבים",
     routes: [
-      { name: "בלוג", href: "#blog" },
       { name: "מקרי בוחן", href: "#portfolio" },
       { name: "שאלות נפוצות", href: "#" },
       { name: "מדיניות פרטיות", href: "#" },

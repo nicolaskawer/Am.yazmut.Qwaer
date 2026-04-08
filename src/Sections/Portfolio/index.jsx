@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import "./portfolio.css";
 import { portfolio } from "../../data";
 import { FaTimes, FaChevronLeft, FaChevronRight, FaEye, FaMapMarkerAlt } from "react-icons/fa";
@@ -24,15 +24,15 @@ const Portfolio = () => {
   const swiperRef  = useRef(null);
   const triggerRef = useRef(null);
 
-  const openModal = (item, cardEl) => {
+  const openModal = useCallback((item, cardEl) => {
     triggerRef.current = cardEl;
     setActiveProject(item);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setActiveProject(null);
     triggerRef.current?.focus();
-  };
+  }, []);
 
   // ESC + body scroll lock + focus trap
   useEffect(() => {
@@ -66,13 +66,14 @@ const Portfolio = () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
-  }, [activeProject]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [activeProject, closeModal]);
 
-  const slides = activeProject
-    ? activeProject.collections?.length
+  const slides = useMemo(() => {
+    if (!activeProject) return [];
+    return activeProject.collections?.length
       ? activeProject.collections
-      : [activeProject.image]
-    : [];
+      : [activeProject.image];
+  }, [activeProject]);
 
   return (
     <section id="portfolio">

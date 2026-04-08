@@ -221,14 +221,16 @@
 
 .modal__swiper {
   width: 100%;
-  height: 420px;
+  height: 480px;
+  background: #000;
 }
 
 .modal__slide-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background: #000;
 }
 
 /* Custom nav buttons */
@@ -332,7 +334,7 @@
   }
 
   .modal__swiper {
-    height: 240px;
+    height: 320px;
   }
 
   .modal__title {
