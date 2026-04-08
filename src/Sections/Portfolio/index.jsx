@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import "./portfolio.css";
 import { portfolio } from "../../data";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaEye, FaMapMarkerAlt } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaEye, FaMapMarkerAlt, FaVideoSlash } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Pagination } from "swiper/modules";
 import SectionHeader from "../../components/SectionHeader";
@@ -15,9 +15,49 @@ const FOCUSABLE = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(", ");
 
-// Detect video slides by path extension
 const isVideo = (src) =>
   typeof src === "string" && /\.(mov|mp4|webm)$/i.test(src);
+
+// Return MIME type for the video element
+const videoMime = (src) => {
+  if (/\.mp4$/i.test(src))  return "video/mp4";
+  if (/\.webm$/i.test(src)) return "video/webm";
+  if (/\.mov$/i.test(src))  return "video/quicktime";
+  return "";
+};
+
+// Fallback shown when a video cannot be played (e.g. .mov on Android)
+const VideoFallback = () => (
+  <div className="video__fallback">
+    <FaVideoSlash className="video__fallback-icon" aria-hidden="true" />
+    <p>הסרטון אינו נתמך בדפדפן זה</p>
+    <p className="video__fallback-hint">נסה לפתוח מ-iPhone / Safari</p>
+  </div>
+);
+
+// Single video slide — tracks whether the browser can play this format
+const VideoSlide = ({ src, label }) => {
+  const [failed, setFailed] = useState(false);
+  const mime = videoMime(src);
+
+  if (failed) return <VideoFallback />;
+
+  return (
+    <video
+      className="modal__slide-img"
+      autoPlay
+      loop
+      muted
+      playsInline
+      controls
+      aria-label={label}
+      onError={() => setFailed(true)}
+    >
+      <source src={src} type={mime} />
+      <VideoFallback />
+    </video>
+  );
+};
 
 const Portfolio = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -74,6 +114,10 @@ const Portfolio = () => {
       ? activeProject.collections
       : [activeProject.image];
   }, [activeProject]);
+
+  // Disable loop when collection contains videos — Swiper clones video slides
+  // which prevents them from autoplaying on mobile
+  const hasVideos = useMemo(() => slides.some(isVideo), [slides]);
 
   return (
     <section id="portfolio">
@@ -150,7 +194,8 @@ const Portfolio = () => {
                 modules={[Keyboard, Pagination]}
                 pagination={{ clickable: true }}
                 keyboard={{ enabled: true }}
-                loop={slides.length > 1}
+                loop={!hasVideos && slides.length > 1}
+                rewind={hasVideos && slides.length > 1}
                 dir="rtl"
                 className="modal__swiper"
                 a11y={{
@@ -161,15 +206,9 @@ const Portfolio = () => {
                 {slides.map((src, idx) => (
                   <SwiperSlide key={idx}>
                     {isVideo(src) ? (
-                      <video
-                        className="modal__slide-img"
+                      <VideoSlide
                         src={src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        controls={false}
-                        aria-label={`סרטון ${idx + 1} מתוך ${slides.length}`}
+                        label={`סרטון ${idx + 1} מתוך ${slides.length}`}
                       />
                     ) : (
                       <img
@@ -182,6 +221,7 @@ const Portfolio = () => {
                 ))}
               </Swiper>
 
+              {/* Nav buttons — hidden on touch devices (swipe handles navigation) */}
               {slides.length > 1 && (
                 <>
                   <button
