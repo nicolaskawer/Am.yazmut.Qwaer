@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import "./portfolio.css";
 import { portfolio } from "../../data";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaEye } from "react-icons/fa";
+import { FaTimes, FaChevronLeft, FaChevronRight, FaEye, FaMapMarkerAlt } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Keyboard, Pagination } from "swiper/modules";
 import SectionHeader from "../../components/SectionHeader";
 
-// All focusable element types inside a container
 const FOCUSABLE = [
   'a[href]',
   'button:not([disabled])',
@@ -16,73 +15,59 @@ const FOCUSABLE = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(", ");
 
+// Detect video slides by path extension
+const isVideo = (src) =>
+  typeof src === "string" && /\.(mov|mp4|webm)$/i.test(src);
+
 const Portfolio = () => {
   const [activeProject, setActiveProject] = useState(null);
-  const swiperRef   = useRef(null);
-  const modalRef    = useRef(null);   // ref on the modal box
-  const triggerRef  = useRef(null);   // ref to the card that opened the modal
+  const swiperRef  = useRef(null);
+  const triggerRef = useRef(null);
 
   const openModal = (item, cardEl) => {
-    triggerRef.current = cardEl;      // remember who opened the modal
+    triggerRef.current = cardEl;
     setActiveProject(item);
   };
 
   const closeModal = () => {
     setActiveProject(null);
-    // Return focus to the card that triggered the modal
     triggerRef.current?.focus();
   };
 
-  // ESC key, body scroll lock, focus trap
+  // ESC + body scroll lock + focus trap
   useEffect(() => {
     if (!activeProject) return;
 
-    // Move focus into the modal on open
     requestAnimationFrame(() => {
-      const first = modalRef.current?.querySelectorAll(FOCUSABLE)?.[0];
+      const first = document.querySelector(".modal__box")?.querySelectorAll(FOCUSABLE)?.[0];
       first?.focus();
     });
 
     const handleKey = (e) => {
-      if (e.key === "Escape") {
-        closeModal();
-        return;
-      }
-
-      // Focus trap: intercept Tab / Shift+Tab
+      if (e.key === "Escape") { closeModal(); return; }
       if (e.key === "Tab") {
         const focusable = Array.from(
-          modalRef.current?.querySelectorAll(FOCUSABLE) ?? []
+          document.querySelector(".modal__box")?.querySelectorAll(FOCUSABLE) ?? []
         );
         if (!focusable.length) return;
-
         const first = focusable[0];
         const last  = focusable[focusable.length - 1];
-
         if (e.shiftKey) {
-          if (document.activeElement === first) {
-            e.preventDefault();
-            last.focus();
-          }
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
         } else {
-          if (document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
-          }
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
         }
       }
     };
 
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
-
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
   }, [activeProject]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Derive the slide images, always an array with at least the main image
   const slides = activeProject
     ? activeProject.collections?.length
       ? activeProject.collections
@@ -127,6 +112,11 @@ const Portfolio = () => {
                   <span className="portfolio__date">{item.date}</span>
                 </div>
                 <h4 className="portfolio__card-title">{item.title}</h4>
+                {item.address && (
+                  <p className="portfolio__card-address">
+                    <FaMapMarkerAlt aria-hidden="true" /> {item.address}
+                  </p>
+                )}
                 <p className="portfolio__card-desc line__clamp__2">
                   {item.description}
                 </p>
@@ -144,7 +134,7 @@ const Portfolio = () => {
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          <div className="modal__box" ref={modalRef}>
+          <div className="modal__box">
             <button
               className="modal__close"
               onClick={closeModal}
@@ -167,13 +157,26 @@ const Portfolio = () => {
                   nextSlideMessage: "תמונה הבאה",
                 }}
               >
-                {slides.map((img, idx) => (
+                {slides.map((src, idx) => (
                   <SwiperSlide key={idx}>
-                    <img
-                      src={img}
-                      alt={`${activeProject.title} — תמונה ${idx + 1} מתוך ${slides.length}`}
-                      className="modal__slide-img"
-                    />
+                    {isVideo(src) ? (
+                      <video
+                        className="modal__slide-img"
+                        src={src}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        controls={false}
+                        aria-label={`סרטון ${idx + 1} מתוך ${slides.length}`}
+                      />
+                    ) : (
+                      <img
+                        src={src}
+                        alt={`${activeProject.title} — תמונה ${idx + 1} מתוך ${slides.length}`}
+                        className="modal__slide-img"
+                      />
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -203,8 +206,12 @@ const Portfolio = () => {
                 <span className="portfolio__tag">{activeProject.category}</span>
                 <span className="portfolio__date">{activeProject.date}</span>
               </div>
-              {/* id="modal-title" ties the dialog's aria-labelledby */}
               <h3 className="modal__title" id="modal-title">{activeProject.title}</h3>
+              {activeProject.address && (
+                <p className="modal__address">
+                  <FaMapMarkerAlt aria-hidden="true" /> {activeProject.address}
+                </p>
+              )}
               <p className="modal__desc">{activeProject.description}</p>
             </div>
           </div>

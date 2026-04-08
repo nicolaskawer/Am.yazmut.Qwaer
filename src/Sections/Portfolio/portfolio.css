@@ -130,6 +130,16 @@
   text-align: right;
 }
 
+.portfolio__card-address {
+  font-size: 0.78rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+  direction: rtl;
+}
+
 .portfolio__card-desc {
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -278,6 +288,16 @@
   font-weight: 700;
   color: var(--color-white);
   margin-bottom: 0.6rem;
+}
+
+.modal__address {
+  font-size: 0.82rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+  direction: rtl;
 }
 
 .modal__desc {

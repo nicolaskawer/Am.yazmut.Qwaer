@@ -26,6 +26,11 @@ import {
   user2,
   user3,
   user4,
+  rishon01, rishon02, rishon03, rishon04, rishon05,
+  rishon06, rishon07, rishon08, rishon09, rishon10,
+  rishon11, rishon12, rishon13, rishon14, rishon15,
+  rishon16, rishon17, rishon18, rishon19, rishon20,
+  rishon21, rishon22, rishon23,
 } from "./assets";
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
@@ -94,13 +99,22 @@ export const services = [
 // ─── Portfolio ────────────────────────────────────────────────────────────────
 export const portfolio = [
   {
-    title: "בית מגורים יוקרתי",
-    image: portfolio1,
-    collections: [portfolio1, portfolio2, portfolio3],
-    date: "15 במאי 2023",
+    title: "פרויקט מגורים — ראשון לציון",
+    address: "שדרות יעקב 58, ראשון לציון",
+    image: rishon01,
+    collections: [
+      rishon01, rishon02, rishon03, rishon04, rishon05,
+      rishon06, rishon07, rishon08, rishon09, rishon10,
+      rishon11, rishon12, rishon13, rishon14, rishon15,
+      rishon16, rishon17, rishon18, rishon19, rishon20,
+      rishon21, rishon22, rishon23,
+      "/videos/rishon_v1.mov",
+      "/videos/rishon_v2.mov",
+    ],
+    date: "22 במאי 2022",
     category: "מגורים",
     description:
-      "בית 5 חדרים יוקרתי הכולל ארכיטקטורה עכשווית, חלונות רצפה לתקרה ומרחבי מגורים פתוחים. נבנה בחומרים פרמיום וגימורים יוקרתיים ליצירת אווירה מודרנית ומזמינה.",
+      "פרויקט בנייה למגורים ברחוב שדרות יעקב 58, ראשון לציון. הפרויקט כולל עבודות בנייה, שיפוץ וגימור ברמה גבוהה, תוך שימוש בחומרים איכותיים ותשומת לב לפרטים הקטנים.",
   },
   {
     title: "בניין משרדים עסקי",
